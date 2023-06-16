@@ -1,5 +1,12 @@
 # CodeIgniter 4 Application Starter
 
+---------------------------------------------
+APLIKASI INI MERUPAKAN PEOJECT SKRIPSI, SEMUA HAL YANG ADA PADA SOFTWARE INI BERSIFAT UNFOFFICIAL (TIDAK RESMI). SEMUA YANG ADA DI DALAM APLIKASI INI MURNI IDE PEMIKIRAN PRIBADI TANPA ADA CAMPUR TANGAN INSTANSI RESMI. 
+
+
+---------------------------------------------------------------------------
+
+
 ## What is CodeIgniter?
 
 CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
