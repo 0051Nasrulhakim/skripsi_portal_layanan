@@ -6,7 +6,9 @@
   margin-left: 2%;
 }
 .navbar .s_navbar_2 {
-  margin-right: 2%;
+  margin-right: 3%;
+  display: flex;
+  flex-direction: row;
 }
 .navbar .s_navbar_2 .btn {
   background-color: white;
@@ -14,6 +16,15 @@
   border: 1px solid #0a62e6;
 }
 .navbar .s_navbar_2 .btn:hover {
+  background-color: #0a62e6;
+  color: white;
+}
+.navbar .s_navbar_2 .btn-daftar {
+  background-color: rgb(252, 203, 43);
+  color: black;
+  border: 1px solid #0a62e6;
+}
+.navbar .s_navbar_2 .btn-daftar:hover {
   background-color: #0a62e6;
   color: white;
 }
@@ -74,6 +85,22 @@
   font-weight: bold;
 }
 
+.wrapper {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: 5%;
+}
 .wrapper .section_dashboard {
-  margin-top: 7%;
+  margin-top: 8%;
+  margin-bottom: 5%;
+}
+.wrapper .section_dashboard .judul {
+  text-align: center;
+}
+.wrapper .section_dashboard .judul hr {
+  border: 1px solid black;
+  width: 10%;
+  margin: auto;
 }/*# sourceMappingURL=style.css.map */

@@ -27,9 +27,13 @@
             </div>
             <div class="s_navbar_2">
                 <!-- tombol login -->
-                <div class="login">
-                    <a href="<?= base_url('login')?>" class="btn">Login</a>
+                <div class="login" style="margin-right: 6%;">
+                    <a href="<?= base_url('login')?>" class="btn">Masuk</a>
                 </div>
+                <div class="login" >
+                    <a href="<?= base_url('regis')?>" class="btn btn-daftar">Daftar</a>
+                </div>
+                
                 <!-- buat menu dropdown -->
                 <!-- <div class="layanan">
                     <div class="dashboard">

@@ -52,7 +52,10 @@
     </div>
     <div class="wrapper">
         <div class="section_dashboard">
-            <h1>Hello, world!</h1>
+            <div class="judul">
+                <h2>Profil Instansi</h2>
+                <hr>
+            </div>
         </div>
     </div>
 
