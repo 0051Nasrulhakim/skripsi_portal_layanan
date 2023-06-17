@@ -1,0 +1,43 @@
+$biru : #0a62e6;
+// root
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    // gradasi warna background
+    background: radial-gradient(circle, #34aefff3, #0000ff);
+    // background-color: $biru;
+    width: 100%;
+}
+.wrapper{
+    text-align: center;
+    img{
+        width: 18%;
+        // margin-top: -1%;
+        margin-left: 2%;
+    }
+    .section{
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+        width: 65%;
+        background-color: white;
+        // taruh di tengah
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 6%;
+        height: 400px;
+        border-radius: 15px;
+        padding: 2%;
+        .side_left{
+            // border: 1px solid black;
+            width: 40%;
+            text-align: center;
+            height: 100%;
+            img{
+                margin-top: 16%;
+                width: 60%;
+            }
+        }
+    }
+}

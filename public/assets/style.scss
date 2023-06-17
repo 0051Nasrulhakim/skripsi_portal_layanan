@@ -6,10 +6,10 @@ $biru : #0a62e6;
         margin-left: 2%;
     }
     .s_navbar_2{
-        margin-right: 3%;
-        // ubah warna tombol
+        margin-right: 2%;
         display: flex;
         flex-direction: row;
+        // ubah warna tombol
         .btn{
             background-color: white;
             color: black;
@@ -20,13 +20,13 @@ $biru : #0a62e6;
             }
         }
         .btn-daftar{
-            background-color: rgb(252, 203, 43);
-            color: black;
+            background-color: rgb(17, 194, 10);
+            color: rgb(255, 255, 255);
             border: 1px solid $biru;
             &:hover{
                 background-color: $biru;
                 color: white;
-            }
+            } 
         }
     }
 }
@@ -90,23 +90,83 @@ $biru : #0a62e6;
     }
 }
 .wrapper{
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
     margin-bottom: 5%;
+    // border: 1px solid black;
+    margin-left: 5%;
+    margin-right: 5%;
     .section_dashboard{
-        margin-top: 8%;
-        margin-bottom: 5%;
+        margin-top: 7%;
         .judul{
             text-align: center;
             hr{
-                // buat garis bawah judul
+                // buat garis bawah
                 border: 1px solid black;
                 width: 10%;
                 margin: auto;
-                
             }
         }
+        .content{
+            .visi_misi{
+                margin-top: 4%;
+                margin-bottom: 5%;
+                border: 1px solid rgb(184, 184, 184);
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+                border-radius: 7px;
+                .sub-content{
+                    margin-left: 3%;
+                    margin-top: 2%;
+                    .judul_sub{
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    .text_visi{
+                        margin-left:1%
+                    }
+                    .struktur_gambar{
+                        // margin-left: 10%;
+                        text-align: center;
+                        img{
+                            width: 85%;
+                        }
+                    }
+                }
+            }
+            .jenis_layanan{
+                margin-top: 4%;
+                
+                .row_card_layanan{
+                    display: flex;
+                    flex-direction: row;
+                    // letakkan card ditengah
+                    justify-content: center;
+                    // justify-content: space-around;
+                    border-radius: 10px;
+                    flex-wrap: wrap;
+                    border: 1px solid rgb(184, 184, 184);
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+                    padding: 3%;
+                    .card{
+                        text-align: center;
+                        margin-left: 3%;
+                        margin-top: 2%;
+                        margin-bottom: 2%;
+                        border-radius: 10px;
+                        width: 14rem;
+                        background-color: #377ee9;
+                        color: white;
+                        transition: 0.2s;
+                        font-weight: bold;
+                        // buat bayangan
+                        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+                        &:hover{
+                            background-color: white;
+                            color: black;
+                        }
+                    }
+                }
+            }
+        }
+        
     }
+
 }
