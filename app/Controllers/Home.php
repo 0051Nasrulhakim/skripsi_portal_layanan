@@ -16,4 +16,8 @@ class Home extends BaseController
     {
         return view('page/login');
     }
+    public function pembuatan_ak1()
+    {
+        return view('page/pembuatan_ak1');
+    }
 }

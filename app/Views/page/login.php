@@ -38,7 +38,7 @@
                             <button class="btn btn-primary">Login</button>
                         </div>
                         <div class="keterangan">
-                            *Bagi yang belum mempunyai akun silahkan klik <div class="disini" onclick="disini_register()">Disini</div>
+                            *Bagi yang belum mempunyai akun silahkan klik <div class="disini" onclick="disini_register()">register</div>
                         </div>
                     </form>
                 </div>

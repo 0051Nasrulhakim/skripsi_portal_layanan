@@ -168,5 +168,45 @@ $biru : #0a62e6;
         }
         
     }
-
+    .section_form{
+        margin-top: 3%;
+        .judul{
+            text-align: center;
+            font-weight: bold;
+            hr{
+                // buat garis bawah
+                border: 1px solid black;
+                width: 10%;
+                margin: auto;
+            }
+        }
+        .container{
+            margin-top: 2%;
+            width: 100%;
+            border: 1px solid rgb(163, 163, 163);
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+            height: 70vh;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            padding: 0%;
+            .side_left{
+                width: 60%;
+                border-right: 1px solid rgb(163, 163, 163);
+                height: 70vh;
+                // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+            }
+            .side_right{
+                width: 40%;
+                // border top dan bottom right radius
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                background-color: #eeeaea;
+                height: 69.7vh;
+                .contain{
+                    margin-top: 2%;
+                }
+            }
+        }
+    }
 }
