@@ -19,6 +19,8 @@ body{
         margin-left: 2%;
     }
     .section{
+        display: flex;
+        flex-direction: row;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
         width: 65%;
         background-color: white;
@@ -37,6 +39,81 @@ body{
             img{
                 margin-top: 16%;
                 width: 60%;
+            }
+        }
+        .side_right{
+            text-align: center;
+            border: 1px solid rgb(139, 139, 139);
+            width: 60%;
+            border-radius: 10px;
+            .judul_login{
+                margin-top: 2%;
+                font-size: 25px;
+                font-weight: bold;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .form_login{
+                margin-top: 7%;
+                margin-left: 5%;
+                margin-right: 5%;
+                .button{
+                    text-align: right;
+                    button{
+                        // margin-right: auto;
+                    }
+                }
+                .keterangan{
+                    // cursor normal
+                    margin-top: 12%;
+                    cursor: default;
+                    .disini{
+                        color:#0000ff;
+                        cursor: pointer;
+                        // jika di hover
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+            .form_register{
+                margin-top: 7%;
+                margin-left: 5%;
+                margin-right: 5%;
+                .button{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    button{
+                        // margin-right: auto;
+                    }
+                    .keterangan{
+                        cursor: default;
+                        display: flex;
+                        flex-direction: row;
+                        width: 500px;
+                        .text-login{
+                            margin-right: 2%;
+                            margin-left: 4%;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                        }
+                        .disini{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            // margin-left: 2%;
+                            color:#0000ff;
+                            cursor: pointer;
+                            // jika di hover
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+                
             }
         }
     }
