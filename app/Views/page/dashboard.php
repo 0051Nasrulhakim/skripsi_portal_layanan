@@ -94,32 +94,40 @@
                 <div class="jenis_layanan">
                     <div class="row_card_layanan">
                         <div class="card">
+                            <a href="<?= base_url()?>home/pembuatan_ak1">
                             <div class="card-body">
                                 <div class="judul_card">
-                                    Pembuatan AK-1
+                                    Pembuatan Kartu AK-1
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <div class="card">
+                            <a href="<?= base_url()?>home/pelayanan_bkk">
                             <div class="card-body">
                                 <div class="judul_card">
-                                    Pelayanan BKK
+                                    Penerbitan Tanda Daftar Pendirian BKK
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <div class="card">
+                            <a href="<?= base_url()?>home/rekomendasi_pasport">
                             <div class="card-body">
                                 <div class="judul_card">
-                                    Rekomendasi Paspor
+                                    Penerbitan Rekomendasi Paspor CPMI
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <div class="card">
+                            <a href="<?= base_url()?>home/tanda_daftar_lpk">
                             <div class="card-body">
                                 <div class="judul_card">
-                                    Penerbitan Tanda Daftar LPK
+                                    Penerbitan Tanda Daftar Lembaga Pelatihan Kerja
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <div class="card">
                             <div class="card-body">
@@ -129,19 +137,13 @@
                             </div>
                         </div>
                         <div class="card">
+                            <a href="<?= base_url()?>home/pencatatan_pkwt">
                             <div class="card-body">
                                 <div class="judul_card">
-                                    Pencatatan Sarana Hubungan Industrial
+                                    Pencatatan Perjanjian Kerja Waktu Tertentu
                                 </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="judul_card">
-                                    Pembuatan AK-1
-                                </div>
-                                
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

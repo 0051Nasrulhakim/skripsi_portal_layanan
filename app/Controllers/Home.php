@@ -29,30 +29,30 @@ class Home extends BaseController
 
     public function pelayanan_bkk(){
         $data = [
-            'title' => 'Pelayanan BKK',
+            'title' => 'Penerbitan Tanda Daftar Pendirian BKK',
         ];
         return view('page/pelayanan_bkk', $data);
     }
 
     public function rekomendasi_pasport(){
         $data = [
-            'title' => 'Penerbitan Rekomendasi Paspor',
+            'title' => 'Penerbitan Rekomendasi Paspor CPMI (Calon Pekerja Migran)',
         ];
         return view('page/rekomendasi_pasport', $data);
     }
 
     public function tanda_daftar_lpk(){
         $data = [
-            'title' => 'Tanda Daftar LPK',
+            'title' => 'Penerbitan Tanda Daftar Lembaga Pelatihan Kerja',
         ];
         return view('page/tanda_daftar_lpk', $data);
     }
 
-    public function pencatatan_sarana_hub_industrial(){
+    public function pencatatan_pkwt(){
         $data = [
-            'title' => 'Pencatatan Sarana Hubungan Industrial',
+            'title' => 'Pencatatan Perjanjian Kerja Waktu Tertentu',
         ];
-        return view('page/pencatatan_sarana_hub_industrial', $data);
+        return view('page/pencatatan_pkwt', $data);
     }
 
 }

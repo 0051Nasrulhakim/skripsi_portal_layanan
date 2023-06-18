@@ -151,8 +151,16 @@
   font-weight: bold;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
+.wrapper .section_dashboard .content .jenis_layanan .row_card_layanan .card a {
+  text-decoration: none;
+  color: white;
+}
 .wrapper .section_dashboard .content .jenis_layanan .row_card_layanan .card:hover {
   background-color: white;
+  color: black;
+}
+.wrapper .section_dashboard .content .jenis_layanan .row_card_layanan .card:hover a {
+  text-decoration: none;
   color: black;
 }
 .wrapper .section_form {

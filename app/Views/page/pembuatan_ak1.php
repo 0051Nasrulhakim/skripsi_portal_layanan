@@ -80,6 +80,8 @@
         <li>Unggah Pass Foto Bacground Berwarna MERAH</li>
         <li>Unggah sertifikat keahlian jika mempunyai. jika tidak maka bisa di abaikan </li>
         <li>Jika semua sudah benar silahkan klik tombol AJUKAN di bagian bawah form (SCROLL FORM)</li>
+        <li>Berkas yang pengajuanya telah di acc akan menerima file melalui email / dapat di cek di halaman user dari dinperinaker</li>
+        <li>Berkas yang pengajuanya di ditolak akan diberitahu melalui halaman user</li>
     </ol>
 
 <!-- end samping kanan form -->

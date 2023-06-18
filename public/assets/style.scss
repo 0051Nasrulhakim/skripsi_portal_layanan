@@ -73,6 +73,7 @@ $biru : #0a62e6;
         flex-direction: row;
         justify-content: space-around;
         .card{
+            
             text-align: center;
             width: 16rem;
             // buat bayangan
@@ -156,9 +157,17 @@ $biru : #0a62e6;
                         color: white;
                         transition: 0.2s;
                         font-weight: bold;
+                        a{
+                            text-decoration: none;
+                            color: white;
+                        }
                         // buat bayangan
                         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
                         &:hover{
+                            a{
+                                text-decoration: none;
+                                color: black;
+                            }
                             background-color: white;
                             color: black;
                         }
