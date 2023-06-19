@@ -219,4 +219,45 @@
 }
 .wrapper .section_form .container .side_right .contain .list {
   margin-right: 1%;
+}
+.wrapper .section_form .container_user {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2%;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 2%;
+}
+.wrapper .section_form .container_user .left_user {
+  margin-left: 2%;
+  margin-right: 8%;
+  width: 60%;
+}
+.wrapper .section_form .container_user .left_user .btn_user {
+  text-align: right;
+}
+.wrapper .section_form .container_user .right_user {
+  flex-direction: row;
+  width: 17%;
+  border-left: 1px solid rgb(145, 144, 144);
+}
+.wrapper .section_form .container_user .right_user .histori_pengajuan {
+  margin-left: 2%;
+}
+.wrapper .section_form .container_user .right_user .histori_pengaduan {
+  margin-top: 4%;
+  margin-left: 2%;
+}
+.wrapper .section_form .container_user .right_user .profile {
+  margin-top: 4%;
+  margin-left: 2%;
+}
+.wrapper .section_form .container_user .right_user .pengaduan {
+  margin-top: 4%;
+  margin-left: 2%;
+}
+.wrapper .section_form .container_user .right_user .active {
+  background-color: #377ee9;
+  color: white;
+  border: none;
 }/*# sourceMappingURL=style.css.map */

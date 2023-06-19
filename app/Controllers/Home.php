@@ -55,4 +55,11 @@ class Home extends BaseController
         return view('page/pencatatan_pkwt', $data);
     }
 
+    public function user(){
+        $data = [
+            'title' => 'Profile User',
+        ];
+        return view('page/user', $data);
+    }
+
 }

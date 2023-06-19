@@ -238,5 +238,49 @@ $biru : #0a62e6;
                 }
             }
         }
+        .container_user{
+            display: flex;
+            flex-direction: row;
+            margin-top: 2%;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 2%;
+
+            .left_user{
+                margin-left: 2%;
+                margin-right: 8%;
+                // border: 1px solid black;
+                width: 60%;
+                .btn_user{
+                    text-align: right;
+                }
+            }
+            .right_user{
+                flex-direction: row;
+                width: 17%;
+                // taruh tombol dibawah
+                border-left: 1px solid rgb(145, 144, 144);
+                .histori_pengajuan{
+                    margin-left: 2%;
+                }
+                .histori_pengaduan{
+                    margin-top: 4%;
+                    margin-left: 2%;
+                }
+                .profile{
+                    margin-top: 4%;
+                    margin-left: 2%;
+                }
+                .pengaduan{
+                    margin-top: 4%;
+                    margin-left: 2%;
+                }
+                .active{
+                    background-color: #377ee9;
+                    color: white;
+                    border: none;
+                }
+            }
+        }
     }
 }
