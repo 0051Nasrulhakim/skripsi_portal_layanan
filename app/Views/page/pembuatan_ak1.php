@@ -6,6 +6,7 @@
         <label for="nik" class="col-sm-3 col-form-label">NIK</label>
         <div class="col-sm-9">
             <input type="text" class="form-control" id="nik" name="nik">
+            <input type="text" class="form-control" id="jenis_pelayanan" name="jenis_pelayanan" value="ak1" hidden>
         </div>
     </div>
     <div class="mb-3 row">
@@ -64,7 +65,7 @@
     <div class="mb-3 row">
         <label for="sertifikat_keahlian" class="col-sm-3 col-form-label">Sertifikat Keahlian</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="sertifikat_keahlian" name="sertifikat_keahlian" multiple>
+            <input type="file" class="form-control" id="sertifikat_keahlian" name="file[]" multiple>
         </div>
     </div>
 

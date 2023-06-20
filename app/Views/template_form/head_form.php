@@ -8,6 +8,6 @@
         <div class="container">
             <div class="side_left">
                 <div class="f_open">
-                    <form method="post" enctype="multipart/form-data" id="form_open">
+                    <form enctype="multipart/form-data" id="form_open">
                     <div class="bab">A. Data Diri</div>
                     <div class="contain_form">

@@ -2,21 +2,22 @@
 <!-- input form -->
 
     <div class="mb-3 row">
-        <label for="nama_perusahaan" class="col-sm-3 col-form-label">Nama Perusahaan</label>
+        <label for="nama_perusahaan_pkwt" class="col-sm-3 col-form-label">Nama Perusahaan</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan">
+            <input type="text" class="form-control" id="nama_perusahaan_pkwt" name="nama_perusahaan_pkwt">
+            <input type="text" class="form-control" id="jenis_pelayanan" name="jenis_pelayanan" value="pkwt" hidden>
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="direktur" class="col-sm-3 col-form-label">Direktur Perusahaan</label>
+        <label for="direktur_pkwt" class="col-sm-3 col-form-label">Direktur Perusahaan</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="direktur" name="direktur">
+            <input type="text" class="form-control" id="direktur_pkwt" name="direktur_pkwt">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="jumlah_pekerja" class="col-sm-3 col-form-label">Jumlah Pekerja Yang Akan Di Catat</label>
+        <label for="jumlah_pekerja_pkwt" class="col-sm-3 col-form-label">Jumlah Pekerja Yang Akan Di Catat</label>
         <div class="col-sm-9">
-            <input type="number" class="form-control" id="jumlah_pekerja" name="jumlah_pekerja">
+            <input type="number" class="form-control" id="jumlah_pekerja_pkwt" name="jumlah_pekerja_pkwt">
         </div>
     </div>
 
@@ -25,9 +26,9 @@
 <?= $this->include('template_form/file_form') ?>
 <!-- upload pada form -->
     <div class="mb-3 row">
-        <label for="daftar_pekerja" class="col-sm-3 col-form-label">Daftar Pekerja</label>
+        <label for="daftar_pekerja_pkwt" class="col-sm-3 col-form-label">Daftar Pekerja</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="daftar_pekerja" name="daftar_pekerja">
+            <input type="file" class="form-control" id="daftar_pekerja_pkwt" name="daftar_pekerja_pkwt">
         </div>
     </div>
     <div class="mb-3 row">

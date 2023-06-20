@@ -5,6 +5,7 @@
         <label for="nik" class="col-sm-3 col-form-label">NIK</label>
         <div class="col-sm-9">
             <input type="text" class="form-control" id="nik" name="nik">
+            <input type="text" class="form-control" id="jenis_pelayanan" name="jenis_pelayanan" value="cpmi" hidden>
         </div>
     </div>
     <div class="mb-3 row">
@@ -91,9 +92,9 @@
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_medical_check" class="col-sm-3 col-form-label">Foto Hasil Medical Check</label>
+        <label for="foto_medical_check_up" class="col-sm-3 col-form-label">Foto Hasil Medical Check</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_medical_check" name="foto_medical_check">
+            <input type="file" class="form-control" id="foto_medical_check_up" name="foto_medical_check_up">
         </div>
     </div>
     <div class="mb-3 row">

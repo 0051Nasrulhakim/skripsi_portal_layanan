@@ -13,6 +13,9 @@ class Home extends BaseController
     {
         return view('page/dashboard');
     }
+    public function testing(){
+        return view('page/testing');
+    }
 
     public function login()
     {

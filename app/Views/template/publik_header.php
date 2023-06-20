@@ -16,6 +16,7 @@
         
         <!-- get css from publik -->
         <link rel="stylesheet" href="<?= base_url('assets/style.css') ?>">
+        <link rel="stylesheet" href="<?= base_url('js/js_pelayanan.js') ?>">
         <!-- sweeet alert -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
