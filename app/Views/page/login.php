@@ -130,7 +130,7 @@
             // $.ajax({
             //     url: '',
             //     type: '',
-            //     data: $('#update_form').serialize(),
+            //     data: $('#f_register').serialize(),
             //     //data: new FormData(this),
             //     success: function(response) {
             //         // your code here
