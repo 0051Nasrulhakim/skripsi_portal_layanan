@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="btn_user">
-                        <button type="button" class="btn btn-danger" id="btn_batal" hidden>Batal</button>
+                        <button type="button" class="btn btn-danger" id="btn_batal" onclick="batal()" hidden>Batal</button>
                         <button type="button" class="btn btn-primary" id="btn_update" onclick="update()">Update</button>
                         <button type="button" class="btn btn-primary" id="btn_simpan" onclick="simpan()" hidden>Simpan</button>
                     </div>
@@ -88,6 +88,7 @@
                                         <th>No</th>
                                         <th>pengaduan</th>
                                         <th>tanggal</th>
+                                        <th>Balasan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -95,11 +96,17 @@
                                         <td>1</td>
                                         <td>asasas</td>
                                         <td>12-05-2023</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-success" onclick="lihat_balasan()">Lihat Balasan</button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>1</td>
                                         <td>asasas</td>
                                         <td>12-05-2023</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-success" onclick="lihat_balasan()">Lihat Balasan</button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -123,6 +130,7 @@
         </div>
     </div>
 </div>
+<?= $this->include('modals/modals_balasan') ?>
 <script>
     $(document).ready(function() {
         $('#tb_histori_pengajuan').DataTable();
@@ -174,6 +182,13 @@
         $('#tanggal_lahir').removeAttr('disabled');
         $('#username').removeAttr('disabled');
         $('#password').removeAttr('disabled');
+    }
+    function batal(){
+        // reload pge
+        location.reload();
+    }
+    function lihat_balasan(){
+        $('#exampleModal').modal('show');
     }
 </script>
 <?= $this->include('template/publik_footer') ?>
