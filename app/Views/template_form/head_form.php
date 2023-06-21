@@ -5,6 +5,11 @@
             <h2><?= $title?></h2>
             <!-- <hr> -->
         </div>
+        <div class="box_alert" style="width: 93%; margin-left: 3%;">
+            <div class="alert alert-danger" role="alert" id="alert" hidden>
+                h
+            </div>
+        </div>
         <div class="container">
             <div class="side_left">
                 <div class="f_open">

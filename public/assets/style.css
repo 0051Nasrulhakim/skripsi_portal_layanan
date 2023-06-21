@@ -190,6 +190,10 @@
   margin: 4%;
   text-align: right;
 }
+.wrapper .section_form .container .tombol_form a {
+  text-decoration: none;
+  color: white;
+}
 .wrapper .section_form .container .side_left {
   width: 60%;
   border-right: 1px solid rgb(163, 163, 163);

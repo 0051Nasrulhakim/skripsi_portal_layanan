@@ -43,6 +43,12 @@ class Home extends BaseController
         ];
         return view('page/rekomendasi_pasport', $data);
     }
+    public function pengaduan(){
+        $data = [
+            'title' => 'Layanan Pengaduan',
+        ];
+        return view('page/pengaduan', $data);
+    }
 
     public function tanda_daftar_lpk(){
         $data = [

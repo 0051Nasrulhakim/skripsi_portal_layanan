@@ -130,11 +130,13 @@
                             </a>
                         </div>
                         <div class="card">
+                            <a href="<?= base_url()?>home/pengaduan">
                             <div class="card-body">
                                 <div class="judul_card">
                                     Layanan Pengaduan
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <div class="card">
                             <a href="<?= base_url()?>home/pencatatan_pkwt">

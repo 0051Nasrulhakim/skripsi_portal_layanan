@@ -9,6 +9,8 @@ class Crud extends BaseController
     public function __construct()
     {
         $this->ak = model('App\Models\M_ak');
+        $nama_file = date('YmdHis');
+        $this->validation = \Config\Services::validation();
     }
 
     public function testing(){
@@ -26,36 +28,55 @@ class Crud extends BaseController
 
     public function pengajuan_pelayanan()
     {
-        
         $jenis_pelayanan = $this->request->getVar('jenis_pelayanan');
 
         if($jenis_pelayanan == 'ak1'){
-            $respon = $this->pembuatan_ak1();
-            $data = $respon;
-            
-            $this->ak->insert($data);
-            response()->setJSON($data);
+            $res = $this->pembuatan_ak1();
+            if($res['status'] == 'success'){
+                $data = $res['data'];
+                $this->ak->insert($data);
+            }
+            response()->setJSON($res);
             return response();
         }else if($jenis_pelayanan == 'bkk'){
-            $respon = $this->pelayanan_bkk();
-            $data = $respon;
-            
-            // $this->bkk->insert($data);
-            response()->setJSON($data);
+            $res = $this->pelayanan_bkk();
+            if($res['status'] == 'success'){
+                $data = $res['data'];
+                // $this->bkk->insert($data);
+            }
+            response()->setJSON($res);
             return response();
         }else if($jenis_pelayanan == 'pkwt'){
-            $respon = $this->pelayanan_pkwt();
-            $data = $respon;
-            
-            // $this->pkwt->insert($data);
-            response()->setJSON($data);
+            $res = $this->pelayanan_pkwt();
+            if($res['status'] == 'success'){
+                $data = $res['data'];
+                // $this->pkwt->insert($data);
+            }
+            response()->setJSON($res);
             return response();
         }else if($jenis_pelayanan == 'cpmi'){
-            $respon = $this->rekomendasi_pasport();
-            $data = $respon;
-            
-            // $this->cpmi->insert($data);
-            response()->setJSON($data);
+            $res = $this->rekomendasi_pasport();
+            if($res['status'] == 'success'){
+                $data = $res['data'];
+                // $this->bkk->insert($data);
+            }
+            response()->setJSON($res);
+            return response();
+        }else if($jenis_pelayanan == "pengaduan"){
+            $res = $this->pengaduan();
+            if($res['status'] == 'success'){
+                $data = $res['data'];
+                // $this->bkk->insert($data);
+            }
+            response()->setJSON($res);
+            return response();
+        }else if($jenis_pelayanan == "lpk"){
+            $res = $this->tanda_daftar_lpk();
+            if($res['status'] == 'success'){
+                $data = $res['data'];
+                // $this->bkk->insert($data);
+            }
+            response()->setJSON($res);
             return response();
         }
     }
@@ -87,10 +108,15 @@ class Crud extends BaseController
         }
 
         $file = $this->request->getFileMultiple('file');
+
         $nama_file = [];
         foreach($file as $f){
-            $nama_file[] = $nik . '_sertifikat_' .$f->getRandomName();
-            $f->move('assets/file/ak1', $nama_file[count($nama_file)-1]);
+            if($f->getSize() === 0){
+                $nama_file[] = '';
+            }else{
+                $nama_file[] = $nik . '_sertifikat_' .$f->getRandomName();
+                $f->move('assets/file/ak1', $nama_file[count($nama_file)-1]);
+            }
         }
         $tanggal = date('Y-m-d H:i:s');
         
@@ -108,10 +134,26 @@ class Crud extends BaseController
             'tanggal_pengajuan' => $tanggal,
         ];
 
-        // $this->ak->insert($data);
-        // response()->setJSON($data);
-        return $data;
+
+        // validation run
+        $this->validation->run($data, 'ak1');
+        $errors = $this->validation->getErrors();
+        if($errors){
+            $res = [
+                'status' => 'error',
+                'errors' => $errors
+            ];
+        }else{
+            $res = [
+                'status' => 'success',
+                'data' => $data
+            ];
+        }
+
+        return $res;
+
     }
+    
     public function pelayanan_bkk(){
         $nama_bkk           = $this->request->getVar('nama_bkk');
         $penanggung_jawab   = $this->request->getVar('penanggung_jawab');
@@ -168,8 +210,23 @@ class Crud extends BaseController
             'pass_foto_kepsek' => $pass_foto_kepsek,
             'tanggal_pengajuan' => $tanggal,
         ];
-        return $data;
+
+        $this->validation->run($data, 'bkk');
+        $errors = $this->validation->getErrors();
+        if($errors){
+            $res = [
+                'status' => 'error',
+                'errors' => $errors
+            ];
+        }else{
+            $res = [
+                'status' => 'success',
+                'data' => $data
+            ];
+        }
+        return $res;
     }
+
     public function pelayanan_pkwt(){
         $nama_perusahaan_pkwt = $this->request->getVar('nama_perusahaan_pkwt');
         $direktur_pkwt = $this->request->getVar('direktur_pkwt');
@@ -200,7 +257,21 @@ class Crud extends BaseController
             'naskah_pkwt' => $nama_naskah_pkwt,
             'tanggal_pengajuan' => $tanggal,
         ];
-        return $data;
+
+        $this->validation->run($data, 'pkwt');
+        $errors = $this->validation->getErrors();
+        if($errors){
+            $res = [
+                'status' => 'error',
+                'errors' => $errors
+            ];
+        }else{
+            $res = [
+                'status' => 'success',
+                'data' => $data
+            ];
+        }
+        return $res;
     }
 
     public function rekomendasi_pasport(){
@@ -305,7 +376,132 @@ class Crud extends BaseController
             'foto_ak1' => $nama_foto_ak1,
             'tanggal_pengajuan' => $tanggal,
         ];
+
+        $this->validation->run($data, 'cpmi');
+        $errors = $this->validation->getErrors();
+        if($errors){
+            $res = [
+                'status' => 'error',
+                'errors' => $errors
+            ];
+        }else{
+            $res = [
+                'status' => 'success',
+                'data' => $data
+            ];
+        }
+        return $res;
+    }
+    public function pengaduan(){
+        $nama_legkap = $this->request->getPost('nama_lengkap');
+        $isi_pengaduan = $this->request->getPost('isi_pengaduan');
+
+        $data = [
+            'nama_lengkap' => $nama_legkap,
+            'isi_pengaduan' => $isi_pengaduan,
+            'tanggal_pengaduan' => date('Y-m-d H:i:s'),
+        ];
+
+        $this->validation->run($data, 'pengaduan');
+        $errors = $this->validation->getErrors();
+        if($errors){
+            $res = [
+                'status' => 'error',
+                'errors' => $errors
+            ];
+        }else{
+            $res = [
+                'status' => 'success',
+                'data' => $data
+            ];
+        }
+        return $res;
+    }
+    public function tanda_daftar_lpk(){
+        $nama_lembaga = $this->request->getPost('nama_lembaga');
+        $alamat_lembaga = $this->request->getPost('alamat_lembaga');
+        $penanggung_jawab = $this->request->getPost('penanggung_jawab');
+        $nomor_telfon = $this->request->getPost('nomor_telfon');
+        $npwp_perusahaan = $this->request->getPost('npwp_perusahaan');
+        $bidang_pelatihan = $this->request->getPost('bidang_pelatihan');
+
+        $foto_keputusan = $this->request->getFile('foto_keputusan');
+        if($foto_keputusan != null || $foto_keputusan != ''){
+            $nama_foto_keputusan = $nama_lembaga . '_foto_keputusan_' .$foto_keputusan->getRandomName();
+            $foto_keputusan->move('assets/file/tanda_daftar_lpk', $nama_foto_keputusan);
+        }else{
+            $nama_foto_keputusan = null;
+        }
+
+        $foto_npwp_perusahaan = $this->request->getFile('foto_npwp_perusahaan');
+        if($foto_npwp_perusahaan != null || $foto_npwp_perusahaan != ''){
+            $nama_foto_npwp_perusahaan = $nama_lembaga . '_foto_npwp_perusahaan_' .$foto_npwp_perusahaan->getRandomName();
+            $foto_npwp_perusahaan->move('assets/file/tanda_daftar_lpk', $nama_foto_npwp_perusahaan);
+        }else{
+            $nama_foto_npwp_perusahaan = null;
+        }
+
+        $identitas_kepala_lpk = $this->request->getFile('identitas_kepala_lpk');
+        if($identitas_kepala_lpk != null || $identitas_kepala_lpk != ''){
+            $nama_identitas_kepala_lpk = $nama_lembaga . '_identitas_kepala_lpk_' .$identitas_kepala_lpk->getRandomName();
+            $identitas_kepala_lpk->move('assets/file/tanda_daftar_lpk', $nama_identitas_kepala_lpk);
+        }else{
+            $nama_identitas_kepala_lpk = null;
+        }
+
+        $profile_lpk = $this->request->getFile('profile_lpk');
+        if($profile_lpk != null || $profile_lpk != ''){
+            $nama_profile_lpk = $nama_lembaga . '_profile_lpk_' .$profile_lpk->getRandomName();
+            $profile_lpk->move('assets/file/tanda_daftar_lpk', $nama_profile_lpk);
+        }else{
+            $nama_profile_lpk = null;
+        }
+
+        $foto_keterangan_domisili = $this->request->getFile('foto_keterangan_domisili');
+        if($foto_keterangan_domisili != null || $foto_keterangan_domisili != ''){
+            $nama_foto_keterangan_domisili = $nama_lembaga . '_foto_keterangan_domisili_' .$foto_keterangan_domisili->getRandomName();
+            $foto_keterangan_domisili->move('assets/file/tanda_daftar_lpk', $nama_foto_keterangan_domisili);
+        }else{
+            $nama_foto_keterangan_domisili = null;
+        }
+
+        $foto_bukti_kepemilikan = $this->request->getFile('foto_bukti_kepemilikan');
+        if($foto_bukti_kepemilikan != null || $foto_bukti_kepemilikan != ''){
+            $nama_foto_bukti_kepemilikan = $nama_lembaga . '_foto_bukti_kepemilikan_' .$foto_bukti_kepemilikan->getRandomName();
+            $foto_bukti_kepemilikan->move('assets/file/tanda_daftar_lpk', $nama_foto_bukti_kepemilikan);
+        }else{
+            $nama_foto_bukti_kepemilikan = null;
+        }
+
+        $data = [
+            'nama_lembaga' => $nama_lembaga,
+            'alamat_lembaga' => $alamat_lembaga,
+            'penanggung_jawab' => $penanggung_jawab,
+            'nomor_telfon' => $nomor_telfon,
+            'npwp_perusahaan' => $npwp_perusahaan,
+            'bidang_pelatihan' => $bidang_pelatihan,
+            'foto_keputusan' => $nama_foto_keputusan,
+            'foto_npwp_perusahaan' => $nama_foto_npwp_perusahaan,
+            'identitas_kepala_lpk' => $nama_identitas_kepala_lpk,
+            'profile_lpk' => $nama_profile_lpk,
+            'foto_keterangan_domisili' => $nama_foto_keterangan_domisili,
+            'foto_bukti_kepemilikan' => $nama_foto_bukti_kepemilikan,
+            'tanggal_pengajuan' => date('Y-m-d H:i:s'),
+        ];
         
-        return $data;
+        $this->validation->run($data, 'lpk');
+        $errors = $this->validation->getErrors();
+        if($errors){
+            $res = [
+                'status' => 'error',
+                'errors' => $errors
+            ];
+        }else{
+            $res = [
+                'status' => 'success',
+                'data' => $data
+            ];
+        }
+        return $res;
     }
 }
