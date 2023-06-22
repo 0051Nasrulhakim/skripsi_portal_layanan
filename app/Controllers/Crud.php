@@ -76,7 +76,6 @@ class Crud extends BaseController
             response()->setJSON($res);
             return response();
         }else if($jenis_pelayanan == "lpk"){
-            // simpan
             $this->lpk = new \App\Models\M_lpk();
             $res = $this->tanda_daftar_lpk();
             $data = $res['data'];
