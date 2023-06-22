@@ -9,7 +9,8 @@ class Crud extends BaseController
     public function __construct()
     {
         $this->ak = model('App\Models\M_ak');
-        $nama_file = date('YmdHis');
+        
+    
         $this->validation = \Config\Services::validation();
     }
 
@@ -39,10 +40,11 @@ class Crud extends BaseController
             response()->setJSON($res);
             return response();
         }else if($jenis_pelayanan == 'bkk'){
+            $this->M_bkk = new \App\Models\M_bkk();
             $res = $this->pelayanan_bkk();
+            $data = $res['data'];
             if($res['status'] == 'success'){
-                $data = $res['data'];
-                // $this->bkk->insert($data);
+                $this->M_bkk->insert($data);
             }
             response()->setJSON($res);
             return response();
@@ -55,26 +57,31 @@ class Crud extends BaseController
             response()->setJSON($res);
             return response();
         }else if($jenis_pelayanan == 'cpmi'){
+            $this->cpmi = new \App\Models\M_cpmi();
             $res = $this->rekomendasi_pasport();
+            $data = $res['data'];
             if($res['status'] == 'success'){
-                $data = $res['data'];
-                // $this->bkk->insert($data);
+                $this->cpmi->insert($data);
             }
+            
             response()->setJSON($res);
             return response();
         }else if($jenis_pelayanan == "pengaduan"){
+            $this->pengaduan = new \App\Models\M_pengaduan();
             $res = $this->pengaduan();
+            $data = $res['data'];
             if($res['status'] == 'success'){
-                $data = $res['data'];
-                // $this->bkk->insert($data);
+                $this->pengaduan->insert($data);
             }
             response()->setJSON($res);
             return response();
         }else if($jenis_pelayanan == "lpk"){
+            // simpan
+            $this->lpk = new \App\Models\M_lpk();
             $res = $this->tanda_daftar_lpk();
+            $data = $res['data'];
             if($res['status'] == 'success'){
-                $data = $res['data'];
-                // $this->bkk->insert($data);
+                $this->lpk->insert($data);
             }
             response()->setJSON($res);
             return response();
@@ -207,7 +214,7 @@ class Crud extends BaseController
             'akta_pendirian_bkk' => $nama_akta_pendirian_bkk,
             'rencana_kerja_bkk' => $nama_rencana_kerja_bkk,
             'dokumen_pendirian_bkk' => $nama_dokumen_pendirian_bkk,
-            'pass_foto_kepsek' => $pass_foto_kepsek,
+            'pass_foto_kepsek' => $nama_pass_foto_kepsek,
             'tanggal_pengajuan' => $tanggal,
         ];
 
@@ -224,6 +231,7 @@ class Crud extends BaseController
                 'data' => $data
             ];
         }
+
         return $res;
     }
 
@@ -395,10 +403,12 @@ class Crud extends BaseController
     public function pengaduan(){
         $nama_legkap = $this->request->getPost('nama_lengkap');
         $isi_pengaduan = $this->request->getPost('isi_pengaduan');
+        $email = $this->request->getPost('email');
 
         $data = [
             'nama_lengkap' => $nama_legkap,
             'isi_pengaduan' => $isi_pengaduan,
+            'email'     => $email,
             'tanggal_pengaduan' => date('Y-m-d H:i:s'),
         ];
 
