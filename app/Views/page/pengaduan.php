@@ -15,6 +15,12 @@
         </div>
     </div>
     <div class="mb-3 row">
+        <label for="email" class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="email" name="email">
+        </div>
+    </div>
+    <div class="mb-3 row">
         <label for="isi_pengaduan" class="col-sm-3 col-form-label">Isi Pengaduan</label>
         <div class="col-sm-9">
             <!-- text area -->
