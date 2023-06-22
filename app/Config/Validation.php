@@ -176,6 +176,12 @@ class Validation extends BaseConfig
                 'required' => 'Isi pengaduan harus diisi',
             ]
         ],
+        'email' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Email harus diisi',
+            ]
+        ],
     ];
 
     public $lpk = [
