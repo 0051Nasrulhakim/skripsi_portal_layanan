@@ -92,6 +92,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach($pengaduan as $v_pengaduan):?>
                                     <tr>
                                         <td>1</td>
                                         <td>asasas</td>
@@ -100,14 +101,7 @@
                                             <button class="btn btn-sm btn-success" onclick="lihat_balasan()">Lihat Balasan</button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>asasas</td>
-                                        <td>12-05-2023</td>
-                                        <td>
-                                            <button class="btn btn-sm btn-success" onclick="lihat_balasan()">Lihat Balasan</button>
-                                        </td>
-                                    </tr>
+                                    <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>

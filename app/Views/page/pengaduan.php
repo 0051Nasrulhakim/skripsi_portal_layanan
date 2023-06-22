@@ -11,6 +11,7 @@
         <label for="nama_lengkap" class="col-sm-3 col-form-label">Nama Lengkap</label>
         <div class="col-sm-9">
             <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
+            <input type="text" class="form-control" id="id_user" name="id_user" value="" hidden>
             <input type="text" class="form-control" id="jenis_pelayanan" name="jenis_pelayanan" value="pengaduan" hidden>
         </div>
     </div>

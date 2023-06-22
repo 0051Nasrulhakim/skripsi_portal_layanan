@@ -49,10 +49,11 @@ class Crud extends BaseController
             response()->setJSON($res);
             return response();
         }else if($jenis_pelayanan == 'pkwt'){
+            $this->pkwt = new \App\Models\M_pkwt();
             $res = $this->pelayanan_pkwt();
+            $data = $res['data'];
             if($res['status'] == 'success'){
-                $data = $res['data'];
-                // $this->pkwt->insert($data);
+                $this->pkwt->insert($data);
             }
             response()->setJSON($res);
             return response();
@@ -73,7 +74,7 @@ class Crud extends BaseController
             if($res['status'] == 'success'){
                 $this->pengaduan->insert($data);
             }
-            response()->setJSON($res);
+            response()->setJSON($data);
             return response();
         }else if($jenis_pelayanan == "lpk"){
             $this->lpk = new \App\Models\M_lpk();
@@ -164,6 +165,7 @@ class Crud extends BaseController
         $nama_bkk           = $this->request->getVar('nama_bkk');
         $penanggung_jawab   = $this->request->getVar('penanggung_jawab');
         $alamat_bkk         = $this->request->getVar('alamat_bkk');
+        $id_user            = $this->request->getVar('id_user');
 
         $struktur_bkk       = $this->request->getFile('struktur_bkk');
         if($struktur_bkk != null || $struktur_bkk != ''){
@@ -215,6 +217,7 @@ class Crud extends BaseController
             'dokumen_pendirian_bkk' => $nama_dokumen_pendirian_bkk,
             'pass_foto_kepsek' => $nama_pass_foto_kepsek,
             'tanggal_pengajuan' => $tanggal,
+            'id_user' => $id_user
         ];
 
         $this->validation->run($data, 'bkk');
@@ -403,12 +406,14 @@ class Crud extends BaseController
         $nama_legkap = $this->request->getPost('nama_lengkap');
         $isi_pengaduan = $this->request->getPost('isi_pengaduan');
         $email = $this->request->getPost('email');
+        $id_user = $this->request->getPost('id_user');
 
         $data = [
             'nama_lengkap' => $nama_legkap,
             'isi_pengaduan' => $isi_pengaduan,
             'email'     => $email,
             'tanggal_pengaduan' => date('Y-m-d H:i:s'),
+            'id_user' => $id_user,
         ];
 
         $this->validation->run($data, 'pengaduan');

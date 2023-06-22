@@ -65,8 +65,10 @@ class Home extends BaseController
     }
 
     public function user(){
+        $this->pengaduan = new \App\Models\M_pengaduan();
         $data = [
             'title' => 'Profile User',
+            'pengaduan' => $this->pengaduan->findAll(),
         ];
         return view('page/user', $data);
     }

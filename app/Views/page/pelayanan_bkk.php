@@ -5,6 +5,7 @@
         <label for="nama_bkk" class="col-sm-3 col-form-label">Nama BKK</label>
         <div class="col-sm-9">
             <input type="text" class="form-control" id="jenis_pelayanan" name="jenis_pelayanan" value="bkk" hidden>
+            <input type="text" class="form-control" id="id_user" name="id_user" value="" hidden>
             <input type="text" class="form-control" id="nama_bkk" name="nama_bkk">
         </div>
     </div>
