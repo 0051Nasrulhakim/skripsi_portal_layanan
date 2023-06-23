@@ -128,6 +128,7 @@ class Crud extends BaseController
         $tanggal = date('Y-m-d H:i:s');
         
         $data = [
+            'id_user' => '',
             'nik' => $nik,
             'nama' => $nama,
             'tanggal_lahir' => $tanggal_lahir,
@@ -260,6 +261,7 @@ class Crud extends BaseController
 
         $tanggal = date('Y-m-d H:i:s');
         $data = [
+            'id_user'               => '',
             'nama_perusahaan_pkwt' => $nama_perusahaan_pkwt,
             'direktur_pkwt' => $direktur_pkwt,
             'jumlah_pekerja_pkwt' => $jumlah_pekerja_pkwt,
@@ -368,6 +370,7 @@ class Crud extends BaseController
         $tanggal = date('Y-m-d H:i:s');
 
         $data =[
+            'id_user'   => '',
             'nik' => $nik,
             'nama' => $nama,
             'alamat' => $alamat,
@@ -413,7 +416,7 @@ class Crud extends BaseController
             'isi_pengaduan' => $isi_pengaduan,
             'email'     => $email,
             'tanggal_pengaduan' => date('Y-m-d H:i:s'),
-            'id_user' => $id_user,
+            'id_user' => '',
         ];
 
         $this->validation->run($data, 'pengaduan');
@@ -501,6 +504,7 @@ class Crud extends BaseController
             'foto_keterangan_domisili' => $nama_foto_keterangan_domisili,
             'foto_bukti_kepemilikan' => $nama_foto_bukti_kepemilikan,
             'tanggal_pengajuan' => date('Y-m-d H:i:s'),
+            'id_user'
         ];
         
         $this->validation->run($data, 'lpk');
