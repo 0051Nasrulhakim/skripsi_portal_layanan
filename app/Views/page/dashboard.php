@@ -94,58 +94,58 @@
                 <div class="jenis_layanan">
                     <div class="row_card_layanan">
                         <div class="card">
-                            <a href="<?= base_url()?>home/pembuatan_ak1">
-                            <div class="card-body">
+                            <!-- <a href="<?= base_url()?>home/pembuatan_ak1"> -->
+                            <div class="card-body" onclick="ak1()">
                                 <div class="judul_card">
                                     Pembuatan Kartu AK-1
                                 </div>
                             </div>
-                            </a>
+                            <!-- </a> -->
                         </div>
                         <div class="card">
-                            <a href="<?= base_url()?>home/pelayanan_bkk">
-                            <div class="card-body">
+                            <!-- <a href="<?= base_url()?>home/pelayanan_bkk"> -->
+                            <div class="card-body" onclick="bkk()">
                                 <div class="judul_card">
                                     Penerbitan Tanda Daftar Pendirian BKK
                                 </div>
                             </div>
-                            </a>
+                            <!-- </a> -->
                         </div>
                         <div class="card">
-                            <a href="<?= base_url()?>home/rekomendasi_pasport">
-                            <div class="card-body">
+                            <!-- <a href="<?= base_url()?>home/rekomendasi_pasport"> -->
+                            <div class="card-body" onclick="cpmi()">
                                 <div class="judul_card">
                                     Penerbitan Rekomendasi Paspor CPMI
                                 </div>
                             </div>
-                            </a>
+                            <!-- </a> -->
                         </div>
                         <div class="card">
-                            <a href="<?= base_url()?>home/tanda_daftar_lpk">
-                            <div class="card-body">
+                            <!-- <a href="<?= base_url()?>home/tanda_daftar_lpk"> -->
+                            <div class="card-body" onclick="lpk()">
                                 <div class="judul_card">
                                     Penerbitan Tanda Daftar Lembaga Pelatihan Kerja
                                 </div>
                             </div>
-                            </a>
+                            <!-- </a> -->
                         </div>
                         <div class="card">
-                            <a href="<?= base_url()?>home/pengaduan">
-                            <div class="card-body">
+                            <!-- <a href="<?= base_url()?>home/pengaduan"> -->
+                            <div class="card-body" onclick="pengaduan()">
                                 <div class="judul_card">
                                     Layanan Pengaduan
                                 </div>
                             </div>
-                            </a>
+                            <!-- </a> -->
                         </div>
-                        <div class="card">
-                            <a href="<?= base_url()?>home/pencatatan_pkwt">
-                            <div class="card-body">
+                        <div class="card" id="card_pencatatan_pkwt" >
+                            <!-- <a href="<?= base_url()?>home/pencatatan_pkwt"> -->
+                            <div class="card-body" onclick="pencatatan_pkwt()">
                                 <div class="judul_card">
                                     Pencatatan Perjanjian Kerja Waktu Tertentu
                                 </div>
                             </div>
-                            </a>
+                            <!-- </a> -->
                         </div>
                     </div>
                 </div>
@@ -157,6 +157,96 @@
         function scrollToServiceSection() {
             var serviceSection = document.getElementById("layanan-section");
             serviceSection.scrollIntoView({ behavior: "smooth" });
+        }
+        function pencatatan_pkwt(){
+            // on click card pencatatan pkwt
+            var logged_in = `<?php echo session()->get('logged_in'); ?>`
+            if(logged_in == false){
+                // swal 
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Anda harus login terlebih dahulu!',
+                    footer: '<a href="<?= base_url()?>home/login">Login</a>'
+                })
+            }else{
+                window.location.href = "<?= base_url()?>home/pencatatan_pkwt"
+            }
+        }
+        function ak1(){
+            // on click card pencatatan pkwt
+            var logged_in = `<?php echo session()->get('logged_in'); ?>`
+            if(logged_in == false){
+                // swal 
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Anda harus login terlebih dahulu!',
+                    footer: '<a href="<?= base_url()?>home/login">Login</a>'
+                })
+            }else{
+                window.location.href = "<?= base_url()?>home/pembuatan_ak1"
+            }
+        }
+        function bkk(){
+            // on click card pencatatan pkwt
+            var logged_in = `<?php echo session()->get('logged_in'); ?>`
+            if(logged_in == false){
+                // swal 
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Anda harus login terlebih dahulu!',
+                    footer: '<a href="<?= base_url()?>home/login">Login</a>'
+                })
+            }else{
+                window.location.href = "<?= base_url()?>home/pelayanan_bkk"
+            }
+        }
+        function cpmi(){
+            // on click card pencatatan pkwt
+            var logged_in = `<?php echo session()->get('logged_in'); ?>`
+            if(logged_in == false){
+                // swal 
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Anda harus login terlebih dahulu!',
+                    footer: '<a href="<?= base_url()?>home/login">Login</a>'
+                })
+            }else{
+                window.location.href = "<?= base_url()?>home/rekomendasi_pasport"
+            }
+        }
+        function lpk(){
+            // on click card pencatatan pkwt
+            var logged_in = `<?php echo session()->get('logged_in'); ?>`
+            if(logged_in == false){
+                // swal 
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Anda harus login terlebih dahulu!',
+                    footer: '<a href="<?= base_url()?>home/login">Login</a>'
+                })
+            }else{
+                window.location.href = "<?= base_url()?>home/tanda_daftar_lpk"
+            }
+        }
+        function pengaduan(){
+            // on click card pencatatan pkwt
+            var logged_in = `<?php echo session()->get('logged_in'); ?>`
+            if(logged_in == false){
+                // swal 
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Anda harus login terlebih dahulu!',
+                    footer: '<a href="<?= base_url()?>home/login">Login</a>'
+                })
+            }else{
+                window.location.href = "<?= base_url()?>home/pengaduan"
+            }
         }
     </script>
 <?= $this->include('template/publik_footer') ?>
