@@ -222,4 +222,38 @@ class Validation extends BaseConfig
             ]
         ],
     ];
+
+    public $register = [
+        'nama_lengkap' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Nama lengkap harus diisi',
+            ]
+        ],
+        'email' => [
+            'rules' => 'required|valid_email|is_unique[user.email]',
+            'errors' => [
+                'required' => 'Email harus diisi',
+                'valid_email' => 'Email tidak valid',
+                'is_unique' => 'Email sudah terdaftar',
+            ]
+        ],
+        'username' => [
+            'rules' => 'required|is_unique[user.username]|min_length[5]|max_length[20]',
+            'errors' => [
+                'required' => 'Username harus diisi',
+                'min_length' => 'Username minimal 5 karakter',
+                'max_length' => 'Username maksimal 20 karakter',
+                'is_unique' => 'Username sudah terdaftar',
+            ]
+        ],
+        'password' => [
+            'rules' => 'required|min_length[5]|max_length[20]',
+            'errors' => [
+                'required' => 'Password harus diisi',
+                'min_length' => 'Password minimal 5 karakter',
+                'max_length' => 'Password maksimal 20 karakter',
+            ]
+        ]
+    ];
 }
