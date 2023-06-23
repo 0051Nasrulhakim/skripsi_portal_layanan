@@ -13,7 +13,7 @@
                     <div class="mb-3 row">
                         <label for="nama" class="col-sm-3 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="nama" name="nama" disabled>
+                            <input type="text" class="form-control" id="nama" name="nama" value="<?=session()->get('nama_lengkap')?>" disabled>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -37,13 +37,18 @@
                     <div class="mb-3 row">
                         <label for="username" class="col-sm-3 col-form-label">Username</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="username" name="username" disabled>
+                            <input type="text" class="form-control" id="username" name="username" value="<?=session()->get('username')?>" disabled>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="password" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="password" name="password" disabled>
+                            <!-- pemberitahuan -->
+                            <!-- small -->
+                            <div class="form-text text-muted">
+                                Jika password kosong maka password tidak akan diubah
+                            </div>
                         </div>
                     </div>
                     <div class="btn_user">
@@ -120,6 +125,9 @@
                 <div class="pengaduan">
                     <button type="button" class="btn btn-success" id="btn_pengaduan" onclick="btn_pengaduan()">Pengaduan</button>
                 </div>
+                <div class="home">
+                    <button type="button" class="btn btn-warning" id="btn_home" onclick="btn_home()">Home</button>
+                </div>
             </div>
         </div>
     </div>
@@ -183,6 +191,9 @@
     }
     function lihat_balasan(){
         $('#exampleModal').modal('show');
+    }
+    function btn_home(){
+        window.location.href = '<?= base_url('home') ?>';
     }
 </script>
 <?= $this->include('template/publik_footer') ?>
