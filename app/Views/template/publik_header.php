@@ -28,13 +28,31 @@
             </div>
             <div class="s_navbar_2">
                 <!-- tombol login -->
-                <div class="login" style="margin-right: 6%;">
-                    <a href="<?= base_url('login')?>" class="btn">Masuk</a>
-                </div>
-                <div class="login" >
-                    <a href="<?= base_url('regis')?>" class="btn btn-daftar">Daftar</a>
-                </div>
-                
+                <!-- get sesion -->
+                <?php if(session()->get('logged_in') == false || session()->get('logged_in') == '' ){ ?>
+
+                    <div class="login" style="margin-right: 6%;">
+                        <a href="<?= base_url('home/login')?>" class="btn">Masuk</a>
+                    </div>
+                <?php }
+                else{?>
+                <!-- jika sudah login -->
+                    <div class="login">
+                    <!-- buatkan saya dropdown menu user -->
+                        <div class="dropdown" >
+                            <a href="<?= base_url()?>home/user">
+                                <button class="btn btn-success">Profile</button>
+                            </a>
+                            <a href="<?= base_url()?>user/logout">
+                                <button class="btn btn-danger">Logout</button>
+                            </a>
+                            <!-- buatkan tombol logout -->
+                             
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
                 <!-- buat menu dropdown -->
                 <!-- <div class="layanan">
                     <div class="dashboard">
