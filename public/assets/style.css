@@ -10,6 +10,19 @@
   display: flex;
   flex-direction: row;
 }
+.navbar .s_navbar_2 .login {
+  display: flex;
+  flex-direction: column;
+}
+.navbar .s_navbar_2 .login .btn-danger {
+  background-color: #c51212;
+  color: white;
+  border: none;
+}
+.navbar .s_navbar_2 .login .btn-danger:hover {
+  background-color: #360000;
+  color: white;
+}
 .navbar .s_navbar_2 .btn {
   background-color: white;
   color: black;
@@ -257,6 +270,10 @@
   margin-left: 2%;
 }
 .wrapper .section_form .container_user .right_user .pengaduan {
+  margin-top: 4%;
+  margin-left: 2%;
+}
+.wrapper .section_form .container_user .right_user .home {
   margin-top: 4%;
   margin-left: 2%;
 }
