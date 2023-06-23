@@ -10,12 +10,9 @@
             Tata cara penggunaan website Poertal Layanan Dinperinaker adalah sebagai berikut:
             <ol>
                 <li>Pengguna Melakukan login dengan cara menekan tombol masuk pada kanan atas</li>
-                <li>Bagi pengguna yang belum mempunyai akun bisa menekan tombol register pada form login.</li>
-                <li>Masukkan Nama Lengkap, Email, Username, dan Password</li>
-                <li>Setelah itu tekan tombol daftar</li>
-                <li>Bagi pengguna yang telah mempunyai akun dapat melewati 2 langkah di atas dan dapat langsung mengisi form login dan klik login</li>
-                <li>Setelah itu pengguna dapat memilih layanan pada bagian jenis layanan</li>
-                <li>Lihat instruksi pengisian form pada tiap jenis layanan</li>
+                <li>Bagi pengguna yang belum mempunyai akun bisa menekan tombol masuk -> klik tulisan register.</li>
+                <li>Cara Melihat Status Pengajuan <strong>(Harus Login terlebih dahulu)</strong> : Klik tombol profile -> histori Pengajuan</li>
+                <li>Cara Melihat Status pengaduan <strong>(Harus Login terlebih dahulu)</strong> : Klik tombol profile -> histori Pengaduan</li>
             </ol>
         </div>
       </div>
