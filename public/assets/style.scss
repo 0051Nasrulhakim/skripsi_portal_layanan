@@ -10,6 +10,19 @@ $biru : #0a62e6;
         display: flex;
         flex-direction: row;
         // ubah warna tombol
+        .login{
+            display: flex;
+            flex-direction: column;
+            .btn-danger{
+                background-color: #c51212;
+                color: white;
+                border: none;
+                &:hover{
+                    background-color: #360000;
+                    color: white;
+                }
+            }
+        }
         .btn{
             background-color: white;
             color: black;
@@ -276,6 +289,10 @@ $biru : #0a62e6;
                     margin-left: 2%;
                 }
                 .pengaduan{
+                    margin-top: 4%;
+                    margin-left: 2%;
+                }
+                .home{
                     margin-top: 4%;
                     margin-left: 2%;
                 }
