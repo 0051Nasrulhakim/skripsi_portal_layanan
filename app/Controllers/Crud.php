@@ -9,8 +9,6 @@ class Crud extends BaseController
     public function __construct()
     {
         $this->ak = model('App\Models\M_ak');
-        
-    
         $this->validation = \Config\Services::validation();
     }
 
@@ -74,7 +72,7 @@ class Crud extends BaseController
             if($res['status'] == 'success'){
                 $this->pengaduan->insert($data);
             }
-            response()->setJSON($data);
+            response()->setJSON($res);
             return response();
         }else if($jenis_pelayanan == "lpk"){
             $this->lpk = new \App\Models\M_lpk();
@@ -128,7 +126,7 @@ class Crud extends BaseController
         $tanggal = date('Y-m-d H:i:s');
         
         $data = [
-            'id_user' => '',
+            'id_user' => session()->get('id_user'),
             'nik' => $nik,
             'nama' => $nama,
             'tanggal_lahir' => $tanggal_lahir,
@@ -218,7 +216,7 @@ class Crud extends BaseController
             'dokumen_pendirian_bkk' => $nama_dokumen_pendirian_bkk,
             'pass_foto_kepsek' => $nama_pass_foto_kepsek,
             'tanggal_pengajuan' => $tanggal,
-            'id_user' => $id_user
+            'id_user' => session()->get('id_user')
         ];
 
         $this->validation->run($data, 'bkk');
@@ -261,7 +259,7 @@ class Crud extends BaseController
 
         $tanggal = date('Y-m-d H:i:s');
         $data = [
-            'id_user'               => '',
+            'id_user'               => session()->get('id_user'),
             'nama_perusahaan_pkwt' => $nama_perusahaan_pkwt,
             'direktur_pkwt' => $direktur_pkwt,
             'jumlah_pekerja_pkwt' => $jumlah_pekerja_pkwt,
@@ -370,7 +368,7 @@ class Crud extends BaseController
         $tanggal = date('Y-m-d H:i:s');
 
         $data =[
-            'id_user'   => '',
+            'id_user'   => session()->get('id_user'),
             'nik' => $nik,
             'nama' => $nama,
             'alamat' => $alamat,
@@ -416,7 +414,7 @@ class Crud extends BaseController
             'isi_pengaduan' => $isi_pengaduan,
             'email'     => $email,
             'tanggal_pengaduan' => date('Y-m-d H:i:s'),
-            'id_user' => '',
+            'id_user' => session()->get('id_user'),
         ];
 
         $this->validation->run($data, 'pengaduan');
@@ -504,7 +502,7 @@ class Crud extends BaseController
             'foto_keterangan_domisili' => $nama_foto_keterangan_domisili,
             'foto_bukti_kepemilikan' => $nama_foto_bukti_kepemilikan,
             'tanggal_pengajuan' => date('Y-m-d H:i:s'),
-            'id_user'
+            'id_user' => session()->get('id_user')
         ];
         
         $this->validation->run($data, 'lpk');
@@ -521,5 +519,134 @@ class Crud extends BaseController
             ];
         }
         return $res;
+    }
+
+    public function acc_ak1(){
+        $this->ak_up = model('App\Models\M_ak');
+        $id = $this->request->getvar('id');
+        $data = [
+            'status_pengajuan' => 'ACC',
+            'pesan'            => ''
+        ];
+        $this->ak_up->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $id
+        ];
+        response()->setJSON($res);
+        return response();
+    }
+
+    public function acc_bkk(){
+        $this->bkk = model('App\Models\M_bkk');
+        $id = $this->request->getvar('id');
+        $data = [
+            'status_pengajuan' => 'ACC',
+            'pesan'            => ''
+        ];
+        $this->bkk->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $id
+        ];
+        response()->setJSON($res);
+        return response();
+    }
+    public function acc_lpk(){
+        $this->lpk = model('App\Models\M_lpk');
+        $id = $this->request->getvar('id');
+        $data = [
+            'status_pengajuan' => 'ACC',
+            'pesan'            => ''
+        ];
+        $this->lpk->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $id
+        ];
+        response()->setJSON($res);
+        return response();
+    }
+    public function acc_pkwt(){
+        $this->pkwt = model('App\Models\M_pkwt');
+        $id = $this->request->getvar('id');
+        $data = [
+            'status_pengajuan' => 'ACC',
+            'pesan'            => ''
+        ];
+        $this->pkwt->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $id
+        ];
+        response()->setJSON($res);
+        return response();
+    }
+
+    public function tolak_ak1(){
+        $this->ak_up = model('App\Models\M_ak');
+        $id = $this->request->getvar('id');
+        $pesan = $this->request->getvar('pesan');
+        $data = [
+            'status_pengajuan' => 'TOLAK',
+            'pesan'            => $pesan
+        ];
+        $this->ak_up->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $id
+        ];
+        response()->setJSON($res);
+        return response();
+    }
+    public function tolak_pkwt(){
+        $this->pkwt = model('App\Models\M_pkwt');
+        $id = $this->request->getvar('id');
+        $pesan = $this->request->getvar('pesan');
+        $data = [
+            'status_pengajuan' => 'TOLAK',
+            'pesan'            => $pesan
+        ];
+        $this->pkwt->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $id
+        ];
+        response()->setJSON($res);
+        return response();
+    }
+
+    public function tolak_bkk(){
+        $this->bkk = model('App\Models\M_bkk');
+        $id = $this->request->getvar('id');
+        $pesan = $this->request->getvar('pesan');
+        $data = [
+            'status_pengajuan' => 'TOLAK',
+            'pesan'            => $pesan
+        ];
+        $this->bkk->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $id
+        ];
+        response()->setJSON($res);
+        return response();
+    }
+
+    public function tolak_lpk(){
+        $this->lpk = model('App\Models\M_lpk');
+        $id = $this->request->getvar('id');
+        $pesan = $this->request->getvar('pesan');
+        $data = [
+            'status_pengajuan' => 'TOLAK',
+            'pesan'            => $pesan
+        ];
+        $this->lpk->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $id
+        ];
+        response()->setJSON($res);
+        return response();
     }
 }
