@@ -51,21 +51,21 @@
 <!-- upload pada form -->
 
     <div class="mb-3 row">
-        <label for="foto_ijazah" class="col-sm-3 col-form-label">Foto Ijazah Terakhir</label>
+        <label for="foto_ijazah" class="col-sm-3 col-form-label">Scan Ijazah Terakhir</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_ijazah" name="foto_ijazah">
+            <input type="file" class="form-control" id="foto_ijazah" name="foto_ijazah" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="pass_foto" class="col-sm-3 col-form-label">Pass Foto</label>
+        <label for="pass_foto" class="col-sm-3 col-form-label"> Pass Foto</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="pass_foto" name="pass_foto">
+            <input type="file" class="form-control" id="pass_foto" name="pass_foto" accept="image/*">
         </div>
     </div>
     <div class="mb-3 row">
         <label for="sertifikat_keahlian" class="col-sm-3 col-form-label">Sertifikat Keahlian</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="sertifikat_keahlian" name="file[]" multiple>
+            <input type="file" class="form-control" id="sertifikat_keahlian" name="file[]" multiple accept="application/pdf">
         </div>
     </div>
 
@@ -77,10 +77,11 @@
 
     <ol>
         <li>Masukkan NIK (Nomor Induk Kependudukan), Nama Lengkap, Tanggal Lahir, Jenis Kelamin, Status, Agama, Alamat sesuai yang ada di KTP</li>
-        <li>Unggah Foto Ijazah Terakhir</li>
+        <li>Unggah SCAN Ijazah Terakhir</li>
         <li>Unggah Pass Foto Bacground Berwarna MERAH</li>
-        <li>Unggah sertifikat keahlian jika mempunyai. jika tidak maka bisa di abaikan </li>
+        <li>Unggah SCAN sertifikat keahlian jika mempunyai. jika tidak maka bisa di abaikan </li>
         <li>Jika semua sudah benar silahkan klik tombol AJUKAN di bagian bawah form (SCROLL FORM)</li>
+        <li><strong>SEMUA BERKAS HARUS BERBENTUK PDF KECUALI PASS FOTO HARUS BERBENTUK GAMBAR</strong></li>
         <li>Berkas yang pengajuanya telah di acc akan menerima file melalui email / dapat di cek di halaman user dari dinperinaker</li>
         <li>Berkas yang pengajuanya di ditolak akan diberitahu melalui halaman user</li>
     </ol>

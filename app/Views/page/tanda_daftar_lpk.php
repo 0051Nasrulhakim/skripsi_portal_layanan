@@ -43,39 +43,39 @@
 <?= $this->include('template_form/file_form') ?>
 <!-- upload pada form -->
     <div class="mb-3 row">
-        <label for="foto_keputusan" class="col-sm-3 col-form-label">Foto keputusan penetapan LPK</label>
+        <label for="foto_keputusan" class="col-sm-3 col-form-label">Scan keputusan penetapan LPK</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_keputusan" name="foto_keputusan">
+            <input type="file" class="form-control" id="foto_keputusan" name="foto_keputusan" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_npwp_perusahaan" class="col-sm-3 col-form-label">Foto NPWP Perusahaan</label>
+        <label for="foto_npwp_perusahaan" class="col-sm-3 col-form-label">Scan NPWP Perusahaan</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_npwp_perusahaan" name="foto_npwp_perusahaan">
+            <input type="file" class="form-control" id="foto_npwp_perusahaan" name="foto_npwp_perusahaan" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
         <label for="identitas_kepala_lpk" class="col-sm-3 col-form-label">Identitas Diri dan Riwayat Hidup Kepala LPK</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="identitas_kepala_lpk" name="identitas_kepala_lpk">
+            <input type="file" class="form-control" id="identitas_kepala_lpk" name="identitas_kepala_lpk" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
         <label for="profile_lpk" class="col-sm-3 col-form-label">Profil LPK yang ditandatangani oleh Kepala LPK</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="profile_lpk" name="profile_lpk">
+            <input type="file" class="form-control" id="profile_lpk" name="profile_lpk" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_keterangan_domisili" class="col-sm-3 col-form-label">Foto Keterangan domisili LPK dari pejabat yang berwenang</label>
+        <label for="foto_keterangan_domisili" class="col-sm-3 col-form-label">Scan Keterangan domisili LPK dari pejabat yang berwenang</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_keterangan_domisili" name="foto_keterangan_domisili">
+            <input type="file" class="form-control" id="foto_keterangan_domisili" name="foto_keterangan_domisili" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_bukti_kepemilikan" class="col-sm-3 col-form-label">Foto Tanda Bukti Kepemilikan atau Sewa atas sarana dan prasarana</label>
+        <label for="foto_bukti_kepemilikan" class="col-sm-3 col-form-label">Scan Tanda Bukti Kepemilikan atau Sewa atas sarana dan prasarana</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_bukti_kepemilikan" name="foto_bukti_kepemilikan">
+            <input type="file" class="form-control" id="foto_bukti_kepemilikan" name="foto_bukti_kepemilikan" accept="application/pdf">
         </div>
     </div>
 
@@ -84,16 +84,7 @@
 <!-- samping kanan form -->
 
     <ol>
-        <li>
-            pada bagian ....Upload keputusan penetapan LPK dari pimpinan perusahaan yang membawahi unit pelatihan kerja pada
-        </li>
-        <li>Foto Nomor Pokok Wajib Pajak (NPWP) atas nama lembaga</li>
-        <li>
-            pada bagian ..... upload tanda bukti kepemilikan atau sewa atas sarana dan prasarana kantor dan tempat pelatihan
-        </li>
-        <li>
-            pada bagian ... upload Profil yang sekurang-kurangnya memuat Struktur organisasi dan uraian tugas, Program pelatihan kerja berbasis kompetensi yang akan diselenggarakan, Program kerja LPK dan rencana pembiayaan selama 1 tahun, Kapasitas pelatihan pertahun
-        </li>
+        <li><strong>UPLOAD SEMUA BERKAS DALAM BENTUK PDF</strong></li>
         <li>Berkas yang pengajuanya telah di acc akan menerima file melalui email / halaman user dari dinperinaker</li>
         <li>Berkas yang pengajuanya di ditolak akan diberitahu melalui halaman user</li>
     </ol>
