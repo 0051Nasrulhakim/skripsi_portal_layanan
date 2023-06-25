@@ -66,9 +66,19 @@ class Home extends BaseController
 
     public function user(){
         $this->pengaduan = new \App\Models\M_pengaduan();
+        $this->ak = new \App\Models\M_ak();
+        $this->bkk = new \App\Models\M_bkk();
+        $this->cpmi = new \App\Models\M_cpmi();
+        $this->lpk = new \App\Models\M_lpk();
+        $this->pkwt = new \App\Models\M_pkwt();
         $data = [
             'title' => 'Profile User',
-            'pengaduan' => $this->pengaduan->findAll(),
+            'bkk'       => $this->bkk->where('id_user', session()->get('id_user'))->findAll(),
+            'cpmi'      => $this->cpmi->where('id_user', session()->get('id_user'))->findAll(),
+            'ak'        => $this->ak->where('id_user', session()->get('id_user'))->findAll(),
+            'lpk'       => $this->lpk->where('id_user', session()->get('id_user'))->findAll(),
+            'pkwt'      => $this->pkwt->where('id_user', session()->get('id_user'))->findAll(),
+            'pengaduan' => $this->pengaduan->where('id_user', session()->get('id_user'))->findAll(),
         ];
         return view('page/user', $data);
     }
