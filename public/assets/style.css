@@ -253,6 +253,11 @@
 .wrapper .section_form .container_user .left_user .btn_user {
   text-align: right;
 }
+.wrapper .section_form .container_user .left_user .page_histori_pengajuan .active {
+  background-color: #377ee9;
+  color: white;
+  border: none;
+}
 .wrapper .section_form .container_user .right_user {
   flex-direction: row;
   width: 17%;

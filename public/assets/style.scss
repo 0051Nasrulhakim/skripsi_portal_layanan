@@ -271,6 +271,13 @@ $biru : #0a62e6;
                 .btn_user{
                     text-align: right;
                 }
+                .page_histori_pengajuan{
+                    .active{
+                        background-color: #377ee9;
+                        color: white;
+                        border: none;
+                    }
+                }
             }
             .right_user{
                 flex-direction: row;

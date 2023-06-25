@@ -1,0 +1,46 @@
+.container{
+    .container_lihat{
+        margin-top: 3%;
+        // border: 1px solid black;
+        .contain{
+            margin-top: 2%;
+            // border: 1px solid red;
+            display: flex;
+            flex-direction: row;
+            .side_left{
+                width: 38%;
+                margin-right: 2%;
+                // border: 1px solid blue;
+                .border_card{
+                    border: 1px solid black;
+                    border-radius: 10px;
+                    .tombol{
+                        margin-right: 2%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: right;
+                        margin-top: 5%;
+                        button{
+                            margin: 1%;
+                        }
+                    }
+                    .row_side_left{
+                        margin: 2%;
+                        display: flex;
+                        flex-direction: row;
+                        .judul{
+                            width: 40%;
+                        }
+                        img{
+                            width: 30%;
+                            margin-left: 35%;
+                        }
+                    }
+                }
+            }
+            .side_right{
+                width: 60%;
+            }
+        }
+    }
+}

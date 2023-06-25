@@ -7,12 +7,14 @@
             <h2 id= judul_page_user>Halaman User</h2>
             <!-- <hr> -->
         </div>
+        
         <div class="container_user">
             <div class="left_user">
                 <div class="page_profile" id="page_profile">
                     <div class="mb-3 row">
                         <label for="nama" class="col-sm-3 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-9">
+                            <input type="text" class="form-control" id="id_user" name="id_user" value="<?=session()->get('id_user')?>" hidden>
                             <input type="text" class="form-control" id="nama" name="nama" value="<?=session()->get('nama_lengkap')?>" disabled>
                         </div>
                     </div>
@@ -58,58 +60,22 @@
                     </div>
                 </div>
                 <div class="page_histori_pengajuan" id="page_histori_pengajuan" hidden>
-                    <div class="table table-responsive">
-                        <table class="table table-striped" id="tb_histori_pengajuan">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Jenis Pengajuan</th>
-                                    <th>Tanggal</th>
-                                    <th>keterangan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>asasas</td>
-                                    <td>12-05-2023</td>
-                                    <td>Acc</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>asasas</td>
-                                    <td>12-05-2023</td>
-                                    <td>Acc</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="daftar_layanan">
+                        <button class="btn btn-sm btn-warning active" id="btn_his_ak" onclick="btn_his_ak()">Pengajuan AK-1</button>
+                        <button class="btn btn-sm btn-warning" id="btn_his_bkk" onclick="btn_his_bkk()">Pengajuan BKK</button>
+                        <button class="btn btn-sm btn-warning" id="btn_his_cpmi" onclick="btn_his_cpmi()">Pengajuan CPMI</button>
+                        <button class="btn btn-sm btn-warning" id="btn_his_pkwt" onclick="btn_his_pkwt()">Pengajuan PKWT</button>
+                        <button class="btn btn-sm btn-warning" id="btn_his_lpk" onclick="btn_his_lpk()">Pengajuan LPK</button>
                     </div>
+                    <?= $this->include('tabel/tabel_his_ak')?>
+                    <?= $this->include('tabel/tabel_his_bkk')?>
+                    <?= $this->include('tabel/tabel_his_cpmi')?>
+                    <?= $this->include('tabel/tabel_his_lpk')?>
+                    <?= $this->include('tabel/tabel_his_pkwt')?>
                 </div>
+                
                 <div class="page_histori_pengaduan" id="page_histori_pengaduan" hidden>
-                    <div class="table table-responsive">
-                            <table class="table table-striped" id="tb_histori_pengaduan">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>pengaduan</th>
-                                        <th>tanggal</th>
-                                        <th>Balasan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($pengaduan as $v_pengaduan):?>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>asasas</td>
-                                        <td>12-05-2023</td>
-                                        <td>
-                                            <button class="btn btn-sm btn-success" onclick="lihat_balasan()">Lihat Balasan</button>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach;?>
-                                </tbody>
-                            </table>
-                        </div>
+                    <?= $this->include('tabel/tabel_his_pengaduan')?>
                 </div>
             </div>
             <div class="right_user">
@@ -184,6 +150,79 @@
         $('#tanggal_lahir').removeAttr('disabled');
         $('#username').removeAttr('disabled');
         $('#password').removeAttr('disabled');
+    }
+    function btn_his_ak(){
+        $('#btn_his_ak').addClass('active');
+        $('#btn_his_bkk').removeClass('active');
+        $('#btn_his_cpmi').removeClass('active');
+        $('#btn_his_lpk').removeClass('active');
+        $('#btn_his_pkwt').removeClass('active');
+
+        $('#tabel_his_ak').attr('hidden', false);
+        $('#tabel_his_bkk').attr('hidden', true);
+        $('#tabel_his_cpmi').attr('hidden', true);
+        $('#tabel_his_lpk').attr('hidden', true);
+        $('#tabel_his_pkwt').attr('hidden', true);
+    }
+    function btn_his_bkk(){
+        $('#btn_his_ak').removeClass('active');
+        $('#btn_his_bkk').addClass('active');
+        $('#btn_his_cpmi').removeClass('active');
+        $('#btn_his_lpk').removeClass('active');
+        $('#btn_his_pkwt').removeClass('active');
+
+        $('#tabel_his_ak').attr('hidden', true);
+        $('#tabel_his_bkk').attr('hidden', false);
+        $('#tabel_his_cpmi').attr('hidden', true);
+        $('#tabel_his_lpk').attr('hidden', true);
+        $('#tabel_his_pkwt').attr('hidden', true);
+
+        $('#tb_his_bkk').DataTable();
+    }
+    function btn_his_cpmi(){
+        $('#btn_his_ak').removeClass('active');
+        $('#btn_his_bkk').removeClass('active');
+        $('#btn_his_cpmi').addClass('active');
+        $('#btn_his_lpk').removeClass('active');
+        $('#btn_his_pkwt').removeClass('active');
+
+        $('#tabel_his_ak').attr('hidden', true);
+        $('#tabel_his_bkk').attr('hidden', true);
+        $('#tabel_his_cpmi').attr('hidden', false);
+        $('#tabel_his_lpk').attr('hidden', true);
+        $('#tabel_his_pkwt').attr('hidden', true);
+
+        $('#tb_his_cpmi').DataTable();
+    }
+    function btn_his_lpk(){
+        $('#btn_his_ak').removeClass('active');
+        $('#btn_his_bkk').removeClass('active');
+        $('#btn_his_cpmi').removeClass('active');
+        $('#btn_his_lpk').addClass('active');
+        $('#btn_his_pkwt').removeClass('active');
+
+        $('#tabel_his_ak').attr('hidden', true);
+        $('#tabel_his_bkk').attr('hidden', true);
+        $('#tabel_his_cpmi').attr('hidden', true);
+        $('#tabel_his_lpk').attr('hidden', false);
+        $('#tabel_his_pkwt').attr('hidden', true);
+
+        $('#tb_his_lpk').DataTable();
+    }
+    function btn_his_pkwt(){
+        $('#btn_his_ak').removeClass('active');
+        $('#btn_his_bkk').removeClass('active');
+        $('#btn_his_cpmi').removeClass('active');
+        $('#btn_his_lpk').removeClass('active');
+        $('#btn_his_pkwt').addClass('active');
+        
+        $('#tabel_his_ak').attr('hidden', true);
+        $('#tabel_his_bkk').attr('hidden', true);
+        $('#tabel_his_cpmi').attr('hidden', true);
+        $('#tabel_his_lpk').attr('hidden', true);
+        $('#tabel_his_pkwt').attr('hidden', false);
+
+        $('#tb_his_pkwt').DataTable();
     }
     function batal(){
         // reload pge
