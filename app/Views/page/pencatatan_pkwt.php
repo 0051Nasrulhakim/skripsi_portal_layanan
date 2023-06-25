@@ -28,13 +28,13 @@
     <div class="mb-3 row">
         <label for="daftar_pekerja_pkwt" class="col-sm-3 col-form-label">Daftar Pekerja</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="daftar_pekerja_pkwt" name="daftar_pekerja_pkwt">
+            <input type="file" class="form-control" id="daftar_pekerja_pkwt" name="daftar_pekerja_pkwt" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
         <label for="naskah_pkwt" class="col-sm-3 col-form-label">Naskah PKWT</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="naskah_pkwt" name="naskah_pkwt">
+            <input type="file" class="form-control" id="naskah_pkwt" name="naskah_pkwt" accept="application/pdf">
         </div>
     </div>
 
@@ -48,6 +48,7 @@
         <li>Masukkan jumlah pekerja yang akan di catat</li>
         <li>Unggah file rekap daftar pekerja yang akan dicatatkan</li>
         <li>Unggah file naskah PKWT yang telah disepakati</li>
+        <li><strong>SEMUA BERKAS YANG DI UNGGAH HARUS BERFORMAT PDF</strong></li>
         <li>Berkas yang pengajuanya telah di acc akan menerima file melalui email / halaman user dari dinperinaker</li>
         <li>Berkas yang pengajuanya di ditolak akan diberitahu melalui halaman user</li>
     </ol>
