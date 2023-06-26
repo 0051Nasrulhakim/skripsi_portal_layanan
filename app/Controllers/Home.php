@@ -80,7 +80,27 @@ class Home extends BaseController
             'pkwt'      => $this->pkwt->where('id_user', session()->get('id_user'))->findAll(),
             'pengaduan' => $this->pengaduan->where('id_user', session()->get('id_user'))->findAll(),
         ];
+        // dd($data);
         return view('page/user', $data);
+    }
+
+    public function lihat_balasan(){
+        $this->balasan = new \App\Models\M_pengaduan();
+        $id = $this->request->getPost('id');
+        $balasan = $this->balasan->select('balasan')->where('id', $id)->first();
+
+        if($balasan['balasan'] == ""){
+            $data = [
+                'balasan' => 'Belum ada balasan'
+            ];
+        }else{
+            $data = [
+                'balasan' => $balasan['balasan']
+            ];
+        }
+
+        response()->setJSON($data);
+        return response();
     }
 
 }

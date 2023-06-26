@@ -22,6 +22,15 @@ class Admin extends BaseController
         return view('admin/page/ak1', $data);
     }
 
+    public function pengaduan(){
+        $this->pengaduan = new \App\Models\M_pengaduan();
+        $data = [
+            'title'=> 'Daftar Pengaduan',
+            'data' => $this->pengaduan->select("*, DATE_FORMAT(tanggal_pengaduan, '%d-%m-%Y %H:%i:%s') as tanggal_pengaduan")->findAll()
+        ];
+        return view('admin/page/pengaduan', $data);
+    }
+
     public function bkk()
     {
         $this->bkk = new \App\Models\M_bkk();
@@ -68,6 +77,14 @@ class Admin extends BaseController
         ];
         // dd($data); 
         return view('admin/preview/lihat_ak1', $data);
+    }
+    public function lihat_cpmi($id){
+        $this->cpmi = new \App\Models\M_cpmi();
+        $data = [
+            'title'=> 'Pengajuan CPMI',
+            'data' => $this->cpmi->where('id', $id)->first()
+        ];
+        return view('admin/preview/lihat_cpmi', $data);
     }
     public function lihat_bkk($id){
         $this->bkk = new \App\Models\M_bkk();

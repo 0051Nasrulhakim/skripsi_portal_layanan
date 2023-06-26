@@ -1,6 +1,6 @@
 <div class="table table-responsive" id="tabel_his_pkwt" hidden>
     <div class="judul_t_pengajuan" style="margin-top: 3%; margin-bottom: 2%; text-align: center;">
-        <h3>Daftar Pengajuan PKWT</h3>
+        <h3>Daftar Pelayanan PKWT</h3>
     </div>
     <table class="table table-striped" id="tb_his_pkwt">
         <thead>
@@ -22,6 +22,10 @@
                 <?php if($his_pkwt['status_pengajuan'] == "ACC"):?>
                     <td style="text-align: center;">    
                         <button class="btn btn-sm btn-success">Cetak</button>
+                    </td>
+                <?php elseif($his_pkwt['status_pengajuan'] == "menunggu"):?>
+                    <td>
+                    
                     </td>
                 <?php else:?>
                     <td style="text-align: center;">

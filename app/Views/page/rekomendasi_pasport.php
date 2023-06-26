@@ -52,55 +52,62 @@
     <div class="mb-3 row">
         <label for="pas_foto" class="col-sm-3 col-form-label">Pas Foto</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="pas_foto" name="pas_foto">
+            <input type="file" class="form-control" id="pas_foto" name="pas_foto" accept="image/*">
+            <div class="form-text text-muted">
+                File harus berbentuk gambar
+            </div>
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_ktp" class="col-sm-3 col-form-label">Foto KTP</label>
+        <label for="foto_ktp" class="col-sm-3 col-form-label">Scan KTP</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_ktp" name="foto_ktp">
+            <input type="file" class="form-control" id="foto_ktp" name="foto_ktp" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_kk" class="col-sm-3 col-form-label">Foto KK</label>
+        <label for="foto_kk" class="col-sm-3 col-form-label">Scan KK</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_kk" name="foto_kk">
+            <input type="file" class="form-control" id="foto_kk" name="foto_kk" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_akta_Kelahiran" class="col-sm-3 col-form-label">Foto Akta Kelahiran</label>
+        <label for="foto_akta_Kelahiran" class="col-sm-3 col-form-label">Scan Akta Kelahiran</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_akta_Kelahiran" name="foto_akta_Kelahiran">
+            <input type="file" class="form-control" id="foto_akta_Kelahiran" name="foto_akta_Kelahiran" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_surat_nikah" class="col-sm-3 col-form-label">Foto surat nikah/cerai</label>
+        <label for="foto_surat_nikah" class="col-sm-3 col-form-label">Scan surat nikah/cerai</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_surat_nikah" name="foto_surat_nikah">
+            <input type="file" class="form-control" id="foto_surat_nikah" name="foto_surat_nikah[]" accept="application/pdf" multiple>
+            <div class="form-text text-muted">
+                Jika Tidak Ada bisa dikosongkan
+            </div>
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_ijazah_terakhir" class="col-sm-3 col-form-label">Foto Ijazah Terakhir</label>
+        <label for="foto_ijazah_terakhir" class="col-sm-3 col-form-label">Scan Ijazah Terakhir</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_ijazah_terakhir" name="foto_ijazah_terakhir">
+            <input type="file" class="form-control" id="foto_ijazah_terakhir" name="foto_ijazah_terakhir" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_surat_perjanjian" class="col-sm-3 col-form-label">Foto Surat Perjanjian Kerja</label>
+        <label for="foto_surat_perjanjian" class="col-sm-3 col-form-label">Scan Surat Perjanjian Kerja</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_surat_perjanjian" name="foto_surat_perjanjian">
+            <input type="file" class="form-control" id="foto_surat_perjanjian" name="foto_surat_perjanjian" accept="application/pdf">
+            
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_medical_check_up" class="col-sm-3 col-form-label">Foto Hasil Medical Check</label>
+        <label for="foto_medical_check_up" class="col-sm-3 col-form-label">Scan Hasil Medical Check</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_medical_check_up" name="foto_medical_check_up">
+            <input type="file" class="form-control" id="foto_medical_check_up" name="foto_medical_check_up" accept="application/pdf">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="foto_ak1" class="col-sm-3 col-form-label">Foto AK-1</label>
+        <label for="foto_ak1" class="col-sm-3 col-form-label">Scan AK-1</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="foto_ak1" name="foto_ak1">
+            <input type="file" class="form-control" id="foto_ak1" name="foto_ak1" accept="application/pdf">
         </div>
     </div>
 
@@ -115,7 +122,7 @@
         <li>Masukkan Bekerja di perusahaan tujuan</li>
         <li>Masukkan negara tujuan</li>
         <li>Masukkan perkiraan tanggal Berangkat</li>
-        <li>Unggah berkas berkas pendukung</li>
+        <li><strong>UNGGAH SEMUA BERKAS DALAM FORMAT PDF (KECUALI PASS FOTO HARUS BERBENTUK GAMBAR)</strong></li>
         <li>Apabila belum menikah bisa mengosongkan form surat nikah/cerai</li>
         <li>Berkas yang pengajuanya telah di acc akan menerima file melalui email / halaman user dari dinperinaker</li>
         <li>Berkas yang pengajuanya di ditolak akan diberitahu melalui halaman user</li>

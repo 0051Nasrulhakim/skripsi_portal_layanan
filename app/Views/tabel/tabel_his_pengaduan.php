@@ -15,7 +15,7 @@
                 <td><?= $v_pengaduan['isi_pengaduan'] ?></td>
                 <td><?= $v_pengaduan['tanggal_pengaduan'] ?></td>
                 <td>
-                    <button class="btn btn-sm btn-success" onclick="lihat_balasan()">Lihat Balasan</button>
+                    <button class="btn btn-sm btn-success" onclick="lihat_balasan(<?= $v_pengaduan['id'] ?>)">Lihat Balasan</button>
                 </td>
             </tr>
             <?php endforeach;?>

@@ -1,6 +1,6 @@
 <div class="table table-responsive" id="tabel_his_bkk" hidden>
     <div class="judul_t_pengajuan" style="margin-top: 3%; margin-bottom: 2%; text-align: center;">
-        <h3>Daftar Pengajuan BKK</h3>
+        <h3>Daftar Pelayanan BKK</h3>
     </div>
     <table class="table table-striped" id="tb_his_bkk">
         <thead>
@@ -23,6 +23,10 @@
                     <td style="text-align: center;">    
                         <button class="btn btn-sm btn-success">Cetak</button>
                     </td>
+                <?php elseif($his_bkk['status_pengajuan'] == "menunggu"):?>
+                <td>
+                    
+                </td>
                 <?php else:?>
                     <td style="text-align: center;">
                         <button class="btn btn-sm btn-danger">Lihat Pesan</button>

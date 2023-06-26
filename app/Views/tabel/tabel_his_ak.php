@@ -1,6 +1,6 @@
 <div class="table table-responsive" id="tabel_his_ak">
     <div class="judul_t_pengajuan" style="margin-top: 3%; margin-bottom: 2%; text-align: center;">
-        <h3>Daftar Pengajuan AK-1</h3>
+        <h3>Daftar Pelayanan AK-1</h3>
     </div>
     <table class="table table-striped" id="tb_histori_pengajuan">
         <thead>
@@ -23,6 +23,10 @@
                 <?php if($histori_ak['status_pengajuan'] == "ACC"):?>
                     <td style="text-align: center;">    
                         <button class="btn btn-sm btn-success">Cetak</button>
+                    </td>
+                <?php elseif($histori_ak['status_pengajuan'] == "menunggu"):?>
+                    <td>
+                        
                     </td>
                 <?php else:?>
                     <td style="text-align: center;">

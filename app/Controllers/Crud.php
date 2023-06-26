@@ -325,13 +325,23 @@ class Crud extends BaseController
             $nama_foto_akta_Kelahiran = null;
         }
 
-        $foto_surat_nikah = $this->request->getFile('foto_surat_nikah');
-        if($foto_surat_nikah != null || $foto_surat_nikah != ''){
-            $nama_foto_surat_nikah = $nik . '_foto_surat_nikah_' .$foto_surat_nikah->getRandomName();
-            $foto_surat_nikah->move('assets/file/pasport', $nama_foto_surat_nikah);
-        }else{
-            $nama_foto_surat_nikah = null;
+        $foto_surat_nikah = $this->request->getFileMultiple('foto_surat_nikah');
+
+        $nama_foto_surat_nikah = [];
+        foreach($foto_surat_nikah as $f){
+            if($f->getSize() === 0){
+                $nama_foto_surat_nikah[] = '';
+            }else{
+                $nama_foto_surat_nikah[] = $nik . '_sertifikat_' .$f->getRandomName();
+                $f->move('assets/file/pasport', $nama_foto_surat_nikah[count($nama_foto_surat_nikah)-1]);
+            }
         }
+        // if($foto_surat_nikah != null || $foto_surat_nikah != ''){
+        //     $nama_foto_surat_nikah = $nik . '_foto_surat_nikah_' .$foto_surat_nikah->getRandomName();
+        //     $foto_surat_nikah->move('assets/file/pasport', $nama_foto_surat_nikah);
+        // }else{
+        //     $nama_foto_surat_nikah = null;
+        // }
 
         $foto_ijazah_terakhir = $this->request->getFile('foto_ijazah_terakhir');
         if($foto_ijazah_terakhir != null || $foto_ijazah_terakhir != ''){
@@ -582,6 +592,38 @@ class Crud extends BaseController
         response()->setJSON($res);
         return response();
     }
+    public function acc_cpmi(){
+        $this->cpmi = model('App\Models\M_cpmi');
+        $id = $this->request->getvar('id');
+        $data = [
+            'status_pengajuan' => 'ACC',
+            'pesan'            => ''
+        ];
+        $this->cpmi->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $id
+        ];
+        response()->setJSON($res);
+        return response();
+    }
+
+    public function tolak_cpmi(){
+        $this->cpmi = model('App\Models\M_cpmi');
+        $id = $this->request->getvar('id');
+        $pesan = $this->request->getvar('pesan');
+        $data = [
+            'status_pengajuan' => 'TOLAK',
+            'pesan'            => $pesan
+        ];
+        $this->cpmi->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $id
+        ];
+        response()->setJSON($res);
+        return response();
+    }
 
     public function tolak_ak1(){
         $this->ak_up = model('App\Models\M_ak');
@@ -645,6 +687,36 @@ class Crud extends BaseController
         $res = [
             'status' => 'success',
             'data' => $id
+        ];
+        response()->setJSON($res);
+        return response();
+    }
+    public function balas(){
+        $this->balas = model('App\Models\M_pengaduan');
+        $id = $this->request->getvar('id');
+        $pesan = $this->request->getvar('pesan');
+        $data = [
+            'balasan'       => $pesan,
+        ];
+        $this->balas->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $data
+        ];
+        response()->setJSON($res);
+        return response();
+    }
+    public function ubah_balas(){
+        $this->balas = model('App\Models\M_pengaduan');
+        $id = $this->request->getvar('id');
+        $pesan = $this->request->getvar('pesan');
+        $data = [
+            'balasan'       => $pesan,
+        ];
+        $this->balas->update($id, $data);
+        $res = [
+            'status' => 'success',
+            'data' => $data
         ];
         response()->setJSON($res);
         return response();

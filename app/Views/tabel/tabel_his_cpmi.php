@@ -1,6 +1,6 @@
 <div class="table table-responsive" id="tabel_his_cpmi" hidden>
     <div class="judul_t_pengajuan" style="margin-top: 3%; margin-bottom: 2%; text-align: center;">
-        <h3>Daftar Pengajuan CPMI</h3>
+        <h3>Daftar Pelayanan CPMI</h3>
     </div>
     <table class="table table-striped" id="tb_his_cpmi">
         <thead>
@@ -16,7 +16,7 @@
         <tbody>
             <?php $i=1; foreach($cpmi as $his_cpmi):?>
             <tr>
-                <td><?= $$i++ ?></td>
+                <td><?= $i++ ?></td>
                 <td><?= $his_cpmi['nama'] ?></td>
                 <td><?= $his_cpmi['nama_perusahaan'] ?></td>
                 <td><?= $his_cpmi['tanggal_pengajuan'] ?></td>
@@ -24,6 +24,10 @@
                 <?php if($his_cpmi['status_pengajuan'] == "ACC"):?>
                     <td style="text-align: center;">    
                         <button class="btn btn-sm btn-success">Cetak</button>
+                    </td>
+                <?php elseif($his_cpmi['status_pengajuan'] == "menunggu"):?>
+                    <td>
+                       
                     </td>
                 <?php else:?>
                     <td style="text-align: center;">

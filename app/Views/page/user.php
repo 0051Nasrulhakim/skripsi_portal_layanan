@@ -61,11 +61,11 @@
                 </div>
                 <div class="page_histori_pengajuan" id="page_histori_pengajuan" hidden>
                     <div class="daftar_layanan">
-                        <button class="btn btn-sm btn-warning active" id="btn_his_ak" onclick="btn_his_ak()">Pengajuan AK-1</button>
-                        <button class="btn btn-sm btn-warning" id="btn_his_bkk" onclick="btn_his_bkk()">Pengajuan BKK</button>
-                        <button class="btn btn-sm btn-warning" id="btn_his_cpmi" onclick="btn_his_cpmi()">Pengajuan CPMI</button>
-                        <button class="btn btn-sm btn-warning" id="btn_his_pkwt" onclick="btn_his_pkwt()">Pengajuan PKWT</button>
-                        <button class="btn btn-sm btn-warning" id="btn_his_lpk" onclick="btn_his_lpk()">Pengajuan LPK</button>
+                        <button class="btn btn-sm btn-warning active" id="btn_his_ak" onclick="btn_his_ak()">pelayanan AK-1</button>
+                        <button class="btn btn-sm btn-warning" id="btn_his_bkk" onclick="btn_his_bkk()">Pelayanan BKK</button>
+                        <button class="btn btn-sm btn-warning" id="btn_his_cpmi" onclick="btn_his_cpmi()">Pelayanan CPMI</button>
+                        <button class="btn btn-sm btn-warning" id="btn_his_pkwt" onclick="btn_his_pkwt()">Pelayanan PKWT</button>
+                        <button class="btn btn-sm btn-warning" id="btn_his_lpk" onclick="btn_his_lpk()">Pelayanan LPK</button>
                     </div>
                     <?= $this->include('tabel/tabel_his_ak')?>
                     <?= $this->include('tabel/tabel_his_bkk')?>
@@ -80,16 +80,13 @@
             </div>
             <div class="right_user">
                 <div class="histori_pengajuan">
-                    <button type="button" class="btn btn-success" id="btn_histori_pengajuan" onclick="btn_histori_pengajuan()">Histori Pengajuan</button>
+                    <button type="button" class="btn btn-success" id="btn_histori_pengajuan" onclick="btn_histori_pengajuan()">Histori Pelayanan</button>
                 </div>
                 <div class="histori_pengaduan">
                     <button type="button" class="btn btn-success" id="btn_histori_pengaduan" onclick="btn_histori_pengaduan()">Histori Pengaduan</button>
                 </div>
                 <div class="profile">
                     <button type="button" class="btn btn-success active" id="btn_profile" onclick="btn_profile()">Profile</button>
-                </div>
-                <div class="pengaduan">
-                    <button type="button" class="btn btn-success" id="btn_pengaduan" onclick="btn_pengaduan()">Pengaduan</button>
                 </div>
                 <div class="home">
                     <button type="button" class="btn btn-warning" id="btn_home" onclick="btn_home()">Home</button>
@@ -120,7 +117,7 @@
         $('#page_histori_pengaduan').attr('hidden', true);
         $('#page_histori_pengajuan').attr('hidden', false);
         $('#page_profile').attr('hidden', true);
-        $('#judul_page_user').html('Histori Pengajuan');
+        $('#judul_page_user').html('Histori Pelayanan');
 
         $('#btn_histori_pengaduan').removeClass('active');
         $('#btn_profile').removeClass('active');
@@ -228,8 +225,24 @@
         // reload pge
         location.reload();
     }
-    function lihat_balasan(){
-        $('#exampleModal').modal('show');
+    function lihat_balasan(id){
+        // alert(id);
+        // cari data berdasarkan id
+        $.ajax({
+            url: 'http://localhost:8080/home/lihat_balasan',
+            type: 'POST',
+            data: {
+                id: id
+            },
+            //data: new FormData(this),
+            success: function(response) {
+                console.log(response);
+                $('#isi_balasan').text(response.balasan);
+                $('#exampleModal').modal('show');
+            }
+        });
+        
+        // $('#exampleModal').modal('show');
     }
     function btn_home(){
         window.location.href = '<?= base_url('home') ?>';

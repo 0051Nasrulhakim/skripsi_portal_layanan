@@ -19,16 +19,16 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $no=1; foreach($data as $bkk):?>
+                <?php $no=1; foreach($data as $cpmi):?>
                 <tr>
                     <td style="text-align: center;"><?= $no++ ?></td>
-                    <td><?= $bkk['nik']?></td>
-                    <td><?= $bkk['nama']?></td> 
-                    <td><?= $bkk['alamat']?></td> 
-                    <td><?= $bkk['tanggal_pengajuan']?></td>
-                    <td>manunggu</td>
+                    <td><?= $cpmi['nik']?></td>
+                    <td><?= $cpmi['nama']?></td> 
+                    <td><?= $cpmi['alamat']?></td> 
+                    <td><?= $cpmi['tanggal_pengajuan']?></td>
+                    <td><?= $cpmi['status_pengajuan']?></td>
                     <td style="text-align: center;">
-                        <button class="btn btn-sm btn-info">Lihat</button>
+                        <a href="<?= base_url()?>admin/lihat_cpmi/<?= $cpmi['id']?>"><button class="btn btn-sm btn-info">Lihat</button></a>
                         <button class="btn btn-sm btn-warning">Ubah Status</button>
                     </td>
                 </tr>

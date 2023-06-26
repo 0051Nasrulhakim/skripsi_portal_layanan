@@ -1,6 +1,6 @@
 <div class="table table-responsive" id="tabel_his_lpk" hidden>
     <div class="judul_t_pengajuan" style="margin-top: 3%; margin-bottom: 2%; text-align: center;">
-        <h3>Daftar Pengajuan LPK</h3>
+        <h3>Daftar Pelayanan LPK</h3>
     </div>
     <table class="table table-striped" id="tb_his_lpk" >
         <thead>
@@ -24,6 +24,10 @@
                 <?php if($his_lpk['status_pengajuan'] == "ACC"):?>
                     <td style="text-align: center;">    
                         <button class="btn btn-sm btn-success">Cetak</button>
+                    </td>
+                <?php elseif($his_lpk['status_pengajuan'] == "menunggu"):?>
+                    <td>
+                        
                     </td>
                 <?php else:?>
                     <td style="text-align: center;">
