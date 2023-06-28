@@ -53,7 +53,7 @@
     <div class="mb-3 row">
         <label for="pass_foto_kepsek" class="col-sm-3 col-form-label">Pas Foto Kepala Sekolah</label>
         <div class="col-sm-9">
-            <input type="file" class="form-control" id="pass_foto_kepsek" name="pass_foto_kepsek" accept="application/pdf">
+            <input type="file" class="form-control" id="pass_foto_kepsek" name="pass_foto_kepsek" accept="image/*">
         </div>
     </div>
 

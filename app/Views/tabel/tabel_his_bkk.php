@@ -21,7 +21,9 @@
                 <td><?= $his_bkk['status_pengajuan'] ?></td>
                 <?php if($his_bkk['status_pengajuan'] == "ACC"):?>
                     <td style="text-align: center;">    
-                        <button class="btn btn-sm btn-success">Cetak</button>
+                        <a href="<?= base_url()?>cetak/cetak_bkk/<?= $his_bkk['id'] ?>">
+                            <button class="btn btn-sm btn-success">Cetak</button>
+                        </a>
                     </td>
                 <?php elseif($his_bkk['status_pengajuan'] == "menunggu"):?>
                 <td>
