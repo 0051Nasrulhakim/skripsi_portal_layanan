@@ -22,7 +22,9 @@
                 <!-- jika status acc -->
                 <?php if($histori_ak['status_pengajuan'] == "ACC"):?>
                     <td style="text-align: center;">    
-                        <button class="btn btn-sm btn-success">Cetak</button>
+                        <a href="<?= base_url()?>cetak/cetak_ak1/<?= $histori_ak['id'] ?>">
+                            <button class="btn btn-sm btn-success">Cetak</button>
+                        </a>
                     </td>
                 <?php elseif($histori_ak['status_pengajuan'] == "menunggu"):?>
                     <td>
