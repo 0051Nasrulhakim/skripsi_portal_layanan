@@ -24,7 +24,12 @@
     <div class="mb-3 row">
         <label for="jenis_kelamin" class="col-sm-3 col-form-label">Jenis Kelamin</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin">
+            <!-- <input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin"> -->
+            <select class="form-select" aria-label="Default select example" id="jenis_kelamin" name="jenis_kelamin">
+                <option selected value="">Pilih Jenis Kelamin</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
         </div>
     </div>
     <div class="mb-3 row">
@@ -36,7 +41,15 @@
     <div class="mb-3 row">
         <label for="agama" class="col-sm-3 col-form-label">Agama</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="agama" name="agama">
+            <!-- <input type="text" class="form-control" id="agama" name="agama"> -->
+            <select class="form-select" aria-label="Default select example" id="agama" name="agama">
+                <option selected value="">Pilih Agama</option>
+                <option value="Islam">Islam</option>
+                <option value="Kristen">Kristen</option>
+                <option value="Hindu">Hindu</option>
+                <option value="Budha">Budha</option>
+                <option value="Konghucu">Konghucu</option>
+            </select>
         </div>
     </div>
     <div class="mb-3 row">

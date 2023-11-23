@@ -4,7 +4,7 @@
 <div class="wrapper">
     <div class="section_form">
         <div class="judul">
-            <h2 id= judul_page_user>Halaman User</h2>
+            <h2 id= judul_page_user>Histori Pelayanan</h2>
             <!-- <hr> -->
         </div>
         <div class="box_alert" style="width: 100%;">
@@ -14,70 +14,7 @@
         </div>
         <div class="container_user">
             <div class="left_user">
-                <div class="page_profile" id="page_profile">
-                    <form id="f_update_user" method="post">
-                        <div class="mb-3 row">
-                            <label for="nama" class="col-sm-3 col-form-label">Nama Lengkap</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="id_user" name="id_user" value="<?=session()->get('id_user')?>" hidden>
-                                <input type="text" class="form-control" id="nama" name="nama" value="<?=session()->get('nama_lengkap')?>" disabled>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="email" class="col-sm-3 col-form-label">Email</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="email" name="email" value="<?=session()->get('email')?>" disabled>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="tanggal_lahir" class="col-sm-3 col-form-label">Tanggal Lahir</label>
-                            <div class="col-sm-9">
-                                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?=session()->get('tanggal_lahir')?>" disabled>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="alamat" value="<?=session()->get('alamat')?>" name="alamat" disabled>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="jenis_kelamin" class="col-sm-3 col-form-label">Jenis Kelamin</label>
-                            <div class="col-sm-9">
-                                <!-- <input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin" disabled> -->
-                                <select class="form-select" aria-label="Default select example" id="jenis_kelamin" name="jenis_kelamin" disabled>
-                                    <option  selected>Pilih Jenis Kelamin</option>
-                                    <option <?php if(session()->get('jenis_kelamin') == "Laki-laki"){echo "selected";}?> value="Laki-laki">Laki-laki</option>
-                                    <option <?php if(session()->get('jenis_kelamin') == "Perempuan"){echo "selected";}?>  value="Perempuan">Perempuan</option>
-                                    <!-- <option value="3">Three</option> -->
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="username" class="col-sm-3 col-form-label">Username</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="username" value="<?=session()->get('username')?>" name="username" value="<?=session()->get('username')?>" disabled>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="password" class="col-sm-3 col-form-label">Password</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="password" name="password" disabled>
-                                <!-- pemberitahuan -->
-                                <!-- small -->
-                                <div class="form-text text-muted">
-                                    Jika password kosong maka password tidak akan diubah
-                                </div>
-                            </div>
-                        </div>
-                        <div class="btn_user">
-                            <button type="button" class="btn btn-danger" id="btn_batal" onclick="batal()" hidden>Batal</button>
-                            <button type="button" class="btn btn-primary" id="btn_update" onclick="update()">Update</button>
-                            <button type="submit" class="btn btn-primary" id="btn_simpan" onclick="simpan()" hidden>Simpan</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="page_histori_pengajuan" id="page_histori_pengajuan" hidden>
+                <div class="page_histori_pengajuan" id="page_histori_pengajuan">
                     <div class="daftar_layanan">
                         <button class="btn btn-sm btn-warning active" id="btn_his_ak" onclick="btn_his_ak()">pelayanan AK-1</button>
                         <button class="btn btn-sm btn-warning" id="btn_his_bkk" onclick="btn_his_bkk()">Pelayanan BKK</button>
@@ -97,7 +34,12 @@
                 </div>
             </div>
             <div class="right_user">
-
+                <div class="histori_pengajuan">
+                    <button type="button" class="btn btn-success" id="btn_histori_pengajuan" onclick="btn_histori_pengajuan()">Histori Pelayanan</button>
+                </div>
+                <div class="histori_pengaduan">
+                    <button type="button" class="btn btn-success" id="btn_histori_pengaduan" onclick="btn_histori_pengaduan()">Histori Pengaduan</button>
+                </div>
                 <div class="home">
                     <button type="button" class="btn btn-warning" id="btn_home" onclick="btn_home()">Home</button>
                 </div>
@@ -187,20 +129,7 @@
             });
         })
     }
-    function update(){
-        $('#btn_update').attr('hidden', true);
-        $('#btn_simpan').attr('hidden', false);
-        $('#btn_batal').attr('hidden', false);
 
-        $('#nama').removeAttr('disabled');
-        $('#alamat').removeAttr('disabled');
-        $('#no_hp').removeAttr('disabled');
-        $('#email').removeAttr('disabled');
-        $('#jenis_kelamin').removeAttr('disabled');
-        $('#tanggal_lahir').removeAttr('disabled');
-        $('#username').removeAttr('disabled');
-        $('#password').removeAttr('disabled');
-    }
     function btn_his_ak(){
         $('#btn_his_ak').addClass('active');
         $('#btn_his_bkk').removeClass('active');

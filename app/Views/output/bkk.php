@@ -12,14 +12,11 @@
         }
         .kop{
             width: 100%;
-            height: 100%;
+            /* height: 100%; */
             /* border: 1px solid blue; */
             font-size: 14pt;
-            display: flex;
             flex-direction: row;
             margin-top: 2%;
-            /* center */
-            justify-content: center;
         }
         hr{
             width: 100%;
@@ -28,31 +25,30 @@
             background-color: black;
         }
         .kop .gambar{
-            width: 15%;
-            height: 100%;
+            /* width: 15%; */
+            /* height: 100%; */
             /* border: 1px solid red; */
         }
         .kop .gambar img{
             text-align: center;
-            width: 48%;
-            height: 100%;
-            /* border: 1px solid red; */
+            width: 80%;
+            /* height: 100%; */
             /* taruh di tengah */
             /* margin-left: 13%; */
         }
         .kop .text{
-            width: 60%;
-            height: 100%;
+            width: 87%;
+            /* height: 100%; */
             margin-left: -8%;
-            /* border: 1px solid red; */
             text-align: center;
+            /* float: left; */
         }
         .kop .text .line1, .line2, .line3 {
             font-size: 19pt;
             font-weight: bold;
         }
         .kop .text .line4 {
-            font-size: 10pt;
+            font-size: 8pt;
         }
 
         .kop .text .line1, .line2, .line3{
@@ -100,20 +96,37 @@
         }
     </style>
     <div class="contain">
-        <div class="kop">
-            <div class="gambar">
-                <img src="<?= $logo?>" alt="">
-            </div>
-            <div class="text">
-                <div class="line1">
-                    PEMERINTAH KOTA PEKALONGAN
-                </div>
-                <div class="line2">
-                    DINAS PERINDUSTRIAN DAN TENAGA KERJA 
-                </div>
-                <div class="line3">
-                    KOTA PEKALONGAN
-                </div>
+        <div class="kop" style="margin-left: 11%; width: 77%; text-align: center;">
+            
+            <table>
+                <tr>
+                    <td rowspan="3" style="width: 13%;">
+                        <div class="gambar">
+                            <img src="<?= $logo?>" alt="">
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <!-- <div class="line1"> -->
+                            <strong>  PEMERINTAH KOTA PEKALONGAN </strong>
+                        <!-- </div> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">
+                        <!-- <div class="line2"> -->
+                            <strong> DINAS PERINDUSTRIAN DAN TENAGA KERJA </strong>
+                        <!-- </div> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">
+                        <!-- <div class="line3"> -->
+                         <strong> KOTA PEKALONGAN </strong>
+                        <!-- </div> -->
+                    </td>
+                </tr>
+            </table>
+            <div class="text" style="margin-left: 13%; margin-bottom: -0.7%; margin-top: -0.43;">
                 <div class="line4">
                     Jalan Majapahit No. 14 Kota Pekalongan. (0285) 421731. dinperinaker@pekalongankota.go.id.
                 </div>
@@ -123,13 +136,13 @@
         <hr>
         <hr class="hr">
 
-        <div class="text_tengah" style="text-align: center; margin-top: 4%;">
-            <div class="text">
+        <div class="text_tengah" style="text-align: center; margin-top: 3%; font-size: 12pt;">
+            <div class="text" style="margin-bottom: -0.4%;">
                 <b>SURAT TANDA DAFTAR</b>
             </div>
-            <hr style="width: 18%; height: 1px;">
-            <div class="nomor">
-                NOMOR : 506 / 2 / PTK-UKM / 2018
+            <hr style="width: 36%; height: 0.3px !important;">
+            <div class="nomor" style="margin-top: -0.4%;">
+                NOMOR : <?= $nomor?> / <?= $bulan?> / PTK-UKM / <?=$tahun?>
             </div>
         </div>
         <div class="isi" style="margin-left: 11%; margin-top: 3%; margin-right: 11%; font-size: 14pt;">
@@ -144,52 +157,57 @@
             </ol>
             berlaku 1 (Satu) tahun sejak diterbitkan. 
         </div>
-        <div class="bawah" >
-            <div class="foter" style="display: flex; flex-direction: row; font-size: 14pt;">
-                <div class="gambar">
-                    <img src="<?= $foto?>" alt="">
-                </div>
-                <div class="ttd">
-                    <div class="diterbitkan_di">
-                        <div class="text">
-                            Diterbitkan di
-                        </div>
-                        <div class="titik">
-                            :
-                        </div>
-                        <div class="text-2">
-                            Kota Pekalongan
-                        </div>
-                    </div>
-                    <div class="diterbitkan_di">
-                        <div class="text">
-                            Pada tanggal
-                        </div>
-                        <div class="titik">
-                            :
-                        </div>
-                        <div class="text-2">
-                            20-02-2020
-                        </div>
-                    </div>
-                    <div class="jabatan" style="margin-top: 5%;">
-                        <div class="text_jabatan">
-                            Kepala Dinas 
-                        </div>
-                        <div class="text_jabatan">
-                            Perindustrian dan Tenaga Kerja
-                        </div>
-                    </div>
-                    <div class="nama" style="text-align: center; margin-top: 27%;">
-                        <div class="text_nama">
-                            NASRUL HAKIM
-                        </div>
-                        <div class="text_nip">
-                            NIP. 19690612 199203 1 001
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="bawah" style="width: 77%;  margin-left: 12%; margin-top: 13%;">
+            <table>
+                <tr>
+                    <td rowspan="8" style="width: 50%;  position: relative;">
+                        <img src="<?= $foto?>" alt="" style="width: 45%; position: absolute; top: 1%; left: 0;">
+                    </td>
+                    <td style=" width: 100px">
+                        Diterbitkan di 
+                    </td>
+                    <td style="width: 10px;">
+                        :
+                    </td>
+                    <td>
+                        Kota Pekalongan
+                    </td>
+                </tr>
+                <tr>
+                    <td style=" width: 100px">Pada tanggal </td>
+                    <td style="width: 10px;">
+                    :
+                    </td>
+                    <td>
+                    20-02-2020
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td colspan="3" style=" text-align: center;">
+                        Kepala Dinas
+                    </td>
+                </tr>
+                <tr style="margin-top: -1%;">
+                    <td colspan="3" style="text-align: center; ">
+                        Perindustrian dan Tenaga Kerja
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center; height: 90px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center;">
+                        SLAMET HARIYADI, SH., M.Hum
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center;">
+                        NIP. 19690612 199203 1 001
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     

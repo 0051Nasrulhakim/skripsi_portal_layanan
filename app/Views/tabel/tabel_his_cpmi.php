@@ -22,8 +22,10 @@
                 <td><?= $his_cpmi['tanggal_pengajuan'] ?></td>
                 <td><?= $his_cpmi['status_pengajuan'] ?></td>
                 <?php if($his_cpmi['status_pengajuan'] == "ACC"):?>
-                    <td style="text-align: center;">    
-                        <button class="btn btn-sm btn-success">Cetak</button>
+                    <td style="text-align: center;">
+                        <a href="<?= base_url()?>cetak/cetak_cpmi/<?= $his_cpmi['id']?>">
+                            <button class="btn btn-sm btn-success">Cetak</button>
+                        </a>    
                     </td>
                 <?php elseif($his_cpmi['status_pengajuan'] == "menunggu"):?>
                     <td>

@@ -35,17 +35,20 @@
                         24 Jam
                     </div>
                     <div class="tombol">
-                        <button class="btn">Form Pengaduan</button>
+                       <button class="btn" onclick="pengaduan()">Form Pengaduan</button>
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
                     <div class="text">
-                        Jam Operasional
+                        Histori Pelayanan
                     </div>
                     <div class="angka">
-                        07.00 - 15.00
+                        <!-- Lihat Histori -->
+                    </div>
+                    <div class="angka">
+                        <button class="btn" onclick="hostori()">Lihat Histori</button>
                     </div>
                 </div>
             </div>
@@ -160,8 +163,8 @@
         }
         function pencatatan_pkwt(){
             // on click card pencatatan pkwt
-            var logged_in = `<?php echo session()->get('logged_in'); ?>`
-            if(logged_in == false){
+            var logged_in = `<?php echo session()->get('role'); ?>`
+            if(logged_in != 'user'){
                 // swal 
                 Swal.fire({
                     icon: 'error',
@@ -175,8 +178,8 @@
         }
         function ak1(){
             // on click card pencatatan pkwt
-            var logged_in = `<?php echo session()->get('logged_in'); ?>`
-            if(logged_in == false){
+            var logged_in = `<?php echo session()->get('role'); ?>`
+            if(logged_in != 'user'){
                 // swal 
                 Swal.fire({
                     icon: 'error',
@@ -188,10 +191,11 @@
                 window.location.href = "<?= base_url()?>home/pembuatan_ak1"
             }
         }
+
         function bkk(){
             // on click card pencatatan pkwt
-            var logged_in = `<?php echo session()->get('logged_in'); ?>`
-            if(logged_in == false){
+            var logged_in = `<?php echo session()->get('role'); ?>`
+            if(logged_in != 'user'){
                 // swal 
                 Swal.fire({
                     icon: 'error',
@@ -205,8 +209,8 @@
         }
         function cpmi(){
             // on click card pencatatan pkwt
-            var logged_in = `<?php echo session()->get('logged_in'); ?>`
-            if(logged_in == false){
+            var logged_in = `<?php echo session()->get('role'); ?>`
+            if(logged_in != 'user'){
                 // swal 
                 Swal.fire({
                     icon: 'error',
@@ -220,8 +224,8 @@
         }
         function lpk(){
             // on click card pencatatan pkwt
-            var logged_in = `<?php echo session()->get('logged_in'); ?>`
-            if(logged_in == false){
+            var logged_in = `<?php echo session()->get('role'); ?>`
+            if(logged_in != 'user'){
                 // swal 
                 Swal.fire({
                     icon: 'error',
@@ -235,8 +239,8 @@
         }
         function pengaduan(){
             // on click card pencatatan pkwt
-            var logged_in = `<?php echo session()->get('logged_in'); ?>`
-            if(logged_in == false){
+            var logged_in = `<?php echo session()->get('role'); ?>`
+            if(logged_in != 'user'){
                 // swal 
                 Swal.fire({
                     icon: 'error',
@@ -246,6 +250,21 @@
                 })
             }else{
                 window.location.href = "<?= base_url()?>home/pengaduan"
+            }
+        }
+        function hostori(){
+            // on click card pencatatan pkwt
+            var logged_in = `<?php echo session()->get('role'); ?>`
+            if(logged_in != 'user'){
+                // swal 
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Anda harus login terlebih dahulu!',
+                    footer: '<a href="<?= base_url()?>home/login">Login</a>'
+                })
+            }else{
+                window.location.href = "<?= base_url()?>home/histori"
             }
         }
     </script>

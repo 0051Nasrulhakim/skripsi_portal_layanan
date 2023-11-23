@@ -5,6 +5,42 @@
     <!-- <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Dashboard</li>
     </ol> -->
+
+    <?php
+        // ambil bulan sekarang
+        if($bulan == null){
+            $bulan = date('m');
+        }
+
+    ?>
+
+    <div class="container-fluid px-4 mb-4">
+        <div class="filter" style="display: flex;">
+            <form action="<?= base_url()?>admin/pengaduan" method="post" style="display: flex;">
+                <div class="field" style="margin-left: 2%;">
+                    <select name="bulan" id="bulan" class="form-select">
+                        <option value="1" <?php if($bulan == '1'){echo 'selected';}?>>Januari</option>
+                        <option value="2" <?php if($bulan == '2'){echo 'selected';}?>>Februari</option>
+                        <option value="3" <?php if($bulan == '3'){echo 'selected';}?>>Maret</option>
+                        <option value="4" <?php if($bulan == '4'){echo 'selected';}?>>April</option>
+                        <option value="5" <?php if($bulan == '5'){echo 'selected';}?>>Mei</option>
+                        <option value="6" <?php if($bulan == '6'){echo 'selected';}?>>Juni</option>
+                        <option value="7" <?php if($bulan == '7'){echo 'selected';}?>>Juli</option>
+                        <option value="8" <?php if($bulan == '8'){echo 'selected';}?>>Agustus</option>
+                        <option value="9" <?php if($bulan == '9'){echo 'selected';}?>>September</option>
+                        <option value="10" <?php if($bulan == '10'){echo 'selected';}?>>Oktober</option>
+                        <option value="11" <?php if($bulan == '11'){echo 'selected';}?>>November</option>
+                        <option value="12" <?php if($bulan == '12'){echo 'selected';}?>>Desember</option>
+                    </select>
+                </div>
+                <button class="btn btn-sm btn-primary" style="margin-left: 2%;" type="submit">
+                    Tampilkan
+                </button>
+            </form>
+
+        </div>
+    </div>
+
     <div class="table table-responsive">
         <table class="table table-striped" id="tabel_lpk">
             <thead>
@@ -13,6 +49,7 @@
                     <th>Nama Lengkap</th>
                     <th>Tanggal Pengaduan</th>
                     <th>Isi Pengaduan</th>
+                    <th>Bukti</th>
                     <th>balasan</th>
                     <th style="text-align: center;">Action</th>
                 </tr>
@@ -24,6 +61,15 @@
                     <td><?= $pengaduan['nama_lengkap']?></td>
                     <td><?= $pengaduan['tanggal_pengaduan']?></td> 
                     <td><?= $pengaduan['isi_pengaduan']?></td> 
+                    <td>
+                        <?php if($pengaduan['bukti'] != '' ){?>
+                            <!-- tombol lihat -->
+                            <button class="btn btn-sm btn-primary" onclick="preview('<?= $pengaduan['bukti']?>')">
+                                lihat
+                            </button>
+                        <?php }else{?>
+                        <?php echo 'tidak ada bukti';}?>
+                    </td>
                     <td><?= $pengaduan['balasan']?></td>
                     <td style="text-align: center;">
                         <?php if($pengaduan['balasan'] == ""):?>
@@ -46,12 +92,36 @@
     </div>
 </div>
 
+
 <?= $this->include('admin/modals/modals_balas') ?>
+<?= $this->include('admin/modals/modals_preview') ?>
 
 <script>
     $(document).ready(function(){
         $('#tabel_lpk').DataTable();
     });
+    function preview(nama_file){
+        $('#nama_file').val(nama_file);
+        // abil nama extensi
+        console.log(nama_file);
+        var ext = nama_file.split('.').pop();
+        // jika extensi jpg atau png
+        if(ext == 'jpg' || ext == 'png'){
+            $('#preview_img').attr('src', 'http://localhost:8080/assets/file/bukti/'+nama_file);
+            $('#preview_img').show();
+            $('#preview_video').hide();
+        }else{
+            $('#preview_video').attr('src', 'http://localhost:8080/assets/file/bukti/'+nama_file);
+            $('#preview_video').show();
+            $('#preview_img').hide();
+        }
+        $('#modal_preview').modal('show');
+        // jika modal di tutup
+        $('#modal_preview').on('hidden.bs.modal', function(){
+            $('#preview_img').attr('src', '');
+            $('#preview_video').attr('src', '');
+        });
+    }
     function balas(id, nama){
         // kirim id modals
         // alert(nama);

@@ -58,41 +58,29 @@
                                 Dashboard
                             </a>
                             <a class="nav-link" href="<?= base_url()?>admin/ak1">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-newspaper"></i></div>
                                 Pengajuan AK1
                             </a>
                             <a class="nav-link" href="<?= base_url()?>admin/bkk">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-school"></i></div>
                                 Pengajuan BKK
                             </a>
                             <a class="nav-link" href="<?= base_url()?>admin/cpmi">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-earth-americas"></i></div>
                                 Pengajuan CPMI
                             </a>
                             <a class="nav-link" href="<?= base_url()?>admin/lpk">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-people-roof"></i></div>
                                 Pengajuan LPK
                             </a>
                             <a class="nav-link" href="<?= base_url()?>admin/pkwt">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-people-group"></i></div>
                                 Pengajuan PKWT
                             </a>
                             <a class="nav-link" href="<?= base_url()?>admin/pengaduan">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-circle-info"></i></div>
                                 Daftar Pengaduan
                             </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

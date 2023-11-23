@@ -20,8 +20,10 @@
                 <td><?= $his_pkwt['tanggal_pengajuan'] ?></td>
                 <td><?= $his_pkwt['status_pengajuan'] ?></td>
                 <?php if($his_pkwt['status_pengajuan'] == "ACC"):?>
-                    <td style="text-align: center;">    
-                        <button class="btn btn-sm btn-success">Cetak</button>
+                    <td style="text-align: center;">
+                        <a href="<?= base_url()?>cetak/cetak_pkwt/<?= $his_pkwt['id']?>">
+                            <button class="btn btn-sm btn-success">Cetak</button>
+                        </a>
                     </td>
                 <?php elseif($his_pkwt['status_pengajuan'] == "menunggu"):?>
                     <td>

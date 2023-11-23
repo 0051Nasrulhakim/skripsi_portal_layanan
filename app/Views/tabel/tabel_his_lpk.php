@@ -23,7 +23,9 @@
                 <td><?= $his_lpk['status_pengajuan'] ?></td>
                 <?php if($his_lpk['status_pengajuan'] == "ACC"):?>
                     <td style="text-align: center;">    
-                        <button class="btn btn-sm btn-success">Cetak</button>
+                        <a href="<?= base_url()?>cetak/cetak_lpk/<?= $his_lpk['id']?>">
+                            <button class="btn btn-sm btn-success">Cetak</button>
+                        </a>
                     </td>
                 <?php elseif($his_lpk['status_pengajuan'] == "menunggu"):?>
                     <td>

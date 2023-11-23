@@ -29,8 +29,8 @@
             <div class="s_navbar_2">
                 <!-- tombol login -->
                 <!-- get sesion -->
-                <?php if(session()->get('logged_in') == false || session()->get('logged_in') == '' ){ ?>
-
+                
+                <?php if(session()->get('role') != 'user'){ ?>
                     <div class="login" style="margin-right: 6%;">
                         <a href="<?= base_url('home/login')?>" class="btn">Masuk</a>
                     </div>

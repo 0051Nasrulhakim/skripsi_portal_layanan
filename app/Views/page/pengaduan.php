@@ -22,6 +22,14 @@
         </div>
     </div>
     <div class="mb-3 row">
+        <label for="email" class="col-sm-3 col-form-label">Bukti Foto / video</label>
+        <div class="col-sm-9">
+           <!-- file upload foto / vide -->
+            <!-- <input type="file" class="form-control" id="bukti" name="bukti"> -->
+            <input type="file" class="form-control" id="bukti" name="bukti" accept="video/*,image/*">
+        </div>
+    </div>
+    <div class="mb-3 row">
         <label for="isi_pengaduan" class="col-sm-3 col-form-label">Isi Pengaduan</label>
         <div class="col-sm-9">
             <!-- text area -->

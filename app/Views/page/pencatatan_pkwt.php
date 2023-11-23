@@ -5,6 +5,7 @@
         <label for="nama_perusahaan_pkwt" class="col-sm-3 col-form-label">Nama Perusahaan</label>
         <div class="col-sm-9">
             <input type="text" class="form-control" id="nama_perusahaan_pkwt" name="nama_perusahaan_pkwt">
+            
             <input type="text" class="form-control" id="jenis_pelayanan" name="jenis_pelayanan" value="pkwt" hidden>
         </div>
     </div>

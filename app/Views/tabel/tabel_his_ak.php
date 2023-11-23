@@ -32,7 +32,7 @@
                     </td>
                 <?php else:?>
                     <td style="text-align: center;">
-                        <button class="btn btn-sm btn-danger">Lihat Pesan</button>
+                        <button class="btn btn-sm btn-danger" onclick="lihat_balasan_ak1(<?= $histori_ak['id'] ?>)">Lihat Pesan</button>
                     </td>
                 <?php endif?>
             </tr>

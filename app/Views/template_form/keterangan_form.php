@@ -20,6 +20,7 @@
             // data: $('#update_form').serialize(),
             processData: false,
             contentType: false,
+            cache: false,
             data: formData,
             success: function(response) {
                 console.log(response);

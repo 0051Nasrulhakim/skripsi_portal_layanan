@@ -31,7 +31,7 @@
                 </td>
                 <?php else:?>
                     <td style="text-align: center;">
-                        <button class="btn btn-sm btn-danger">Lihat Pesan</button>
+                        <button class="btn btn-sm btn-danger" onclick="lihat_balasan_bkk(<?= $his_bkk['id'] ?>)">Lihat Pesan</button>
                     </td>
                 <?php endif?>
             </tr>

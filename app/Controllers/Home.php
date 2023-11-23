@@ -6,6 +6,7 @@ class Home extends BaseController
 {
     public function __construct()
     {
+        date_default_timezone_set("Asia/Jakarta");
         helper('form');
     }
 
@@ -83,6 +84,25 @@ class Home extends BaseController
         // dd($data);
         return view('page/user', $data);
     }
+    public function histori(){
+        $this->pengaduan = new \App\Models\M_pengaduan();
+        $this->ak = new \App\Models\M_ak();
+        $this->bkk = new \App\Models\M_bkk();
+        $this->cpmi = new \App\Models\M_cpmi();
+        $this->lpk = new \App\Models\M_lpk();
+        $this->pkwt = new \App\Models\M_pkwt();
+        $data = [
+            'title' => 'Profile User',
+            'bkk'       => $this->bkk->where('id_user', session()->get('id_user'))->findAll(),
+            'cpmi'      => $this->cpmi->where('id_user', session()->get('id_user'))->findAll(),
+            'ak'        => $this->ak->where('id_user', session()->get('id_user'))->findAll(),
+            'lpk'       => $this->lpk->where('id_user', session()->get('id_user'))->findAll(),
+            'pkwt'      => $this->pkwt->where('id_user', session()->get('id_user'))->findAll(),
+            'pengaduan' => $this->pengaduan->where('id_user', session()->get('id_user'))->findAll(),
+        ];
+        // dd($data);
+        return view('page/histori', $data);
+    }
 
     public function lihat_balasan(){
         $this->balasan = new \App\Models\M_pengaduan();
@@ -96,6 +116,43 @@ class Home extends BaseController
         }else{
             $data = [
                 'balasan' => $balasan['balasan']
+            ];
+        }
+
+        response()->setJSON($data);
+        return response();
+    }
+
+    public function lihat_balasan_bkk(){
+        $this->bkk = new \App\Models\M_bkk();
+        $id = $this->request->getPost('id');
+        $balasan = $this->bkk->select('pesan')->where('id', $id)->first();
+
+        if($balasan['pesan'] == ""){
+            $data = [
+                'balasan' => 'Belum ada balasan'
+            ];
+        }else{
+            $data = [
+                'balasan' => $balasan['pesan']
+            ];
+        }
+
+        response()->setJSON($data);
+        return response();
+    }
+    public function lihat_balasan_ak1(){
+        $this->ak = new \App\Models\M_ak();
+        $id = $this->request->getPost('id');
+        $balasan = $this->ak->select('pesan')->where('id', $id)->first();
+
+        if($balasan['pesan'] == ""){
+            $data = [
+                'balasan' => 'Belum ada balasan'
+            ];
+        }else{
+            $data = [
+                'balasan' => $balasan['pesan']
             ];
         }
 

@@ -24,7 +24,7 @@
             </div>
             <div class="side_right">
                 <div class="judul_login" id="judul">
-                    Login Portal Layanan Dinperinaker
+                    Login ADMIN Dinperinaker
                 </div>
                 <div class="form_login">
                     <form id="f_login">
@@ -77,7 +77,7 @@
                         <div class="mb-3 row">
                             <label for="password" class="col-sm-3 col-form-label">password</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="password_register" id="password_register" onkeyup="r_password_register_e()">
+                                <input type="password" class="form-control" name="password_register" id="password_register" onkeyup="r_password_register_e()">
                                 <div class="form-text text-danger" id="password_register_error"></div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
     </div>
     <script>
         function disini_register(){
-            document.getElementById('judul').innerHTML = "Register Portal Layanan Dinperinaker";
+            document.getElementById('judul').innerHTML = "Register ADMIN Layanan Dinperinaker";
             document.getElementsByClassName('form_login')[0].hidden = true;
             document.getElementsByClassName('form_register')[0].hidden = false;
             document.getElementById('nama_register').value = "";
@@ -111,7 +111,7 @@
             document.getElementById('password_register').value = "";
         }
         function disini_login(){
-            document.getElementById('judul').innerHTML = "Login Portal Layanan Dinperinaker";
+            document.getElementById('judul').innerHTML = "Login ADMIN Dinperinaker";
             document.getElementsByClassName('form_login')[0].hidden = false;
             document.getElementsByClassName('form_register')[0].hidden = true;
             document.getElementById('username').value = "";
@@ -121,7 +121,7 @@
         $('#f_login').submit(function(e) {
             e.preventDefault();
             $.ajax({
-                url: 'http://localhost:8080/user/login',
+                url: 'http://localhost:8080/admin/login',
                 type: 'POST',
                 data: $('#f_login').serialize(),
                 //data: new FormData(this),
@@ -142,7 +142,7 @@
                         })
                         // redirect
                         setTimeout(function() {
-                            window.location.href = 'http://localhost:8080/home';
+                            window.location.href = "<?= base_url()?>admin/index";
                         }, 1000);
                     }
                 }
@@ -152,7 +152,7 @@
         $('#f_register').submit(function(e) {
             e.preventDefault();
             $.ajax({
-                url: 'http://localhost:8080/user/register',
+                url: 'http://localhost:8080/admin/register',
                 type: 'post',
                 data: $('#f_register').serialize(),
                 // data: new FormData(this),
@@ -176,7 +176,7 @@
                         })
                         .then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = "<?= base_url()?>home/login";
+                                window.location.href = "<?= base_url()?>admin/login_page";
                             }
                         })
                     }

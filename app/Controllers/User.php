@@ -6,6 +6,7 @@ class User extends BaseController
 {
     public function __construct()
     {
+        date_default_timezone_set("Asia/Jakarta");
         $this->validation = \Config\Services::validation();
         $this->session = \Config\Services::session();
         $this->user = new \App\Models\M_user();
@@ -26,12 +27,13 @@ class User extends BaseController
                     'id_user' => $cek['id_user'],
                     'nama_lengkap' => $cek['nama_lengkap'],
                     'email' => $cek['email'],
-                    // 'alamat' => $cek['alamat'],
-                    // 'jenis_kelamin' => $cek['jenis_kelamin'],
-                    // 'tanggal_lahir' => $cek['tanggal_lahir'],
+                    'alamat' => $cek['alamat'],
+                    'jenis_kelamin' => $cek['jenis_kelamin'],
+                    'tanggal_lahir' => $cek['tanggal_lahir'],
                     'username' => $cek['username'],
                     'password' => $cek['password'],
-                    'logged_in' => TRUE
+                    'logged_in' => TRUE,
+                    'role'      => 'user'
                 ];
                 $this->session->set($data);
                 $res = [
@@ -57,6 +59,79 @@ class User extends BaseController
             response()->setJSON($res);
             return response();
         }
+    }
+    public function update_user(){
+        $id_user = $this->request->getPost('id_user');
+        $nama = $this->request->getPost('nama');
+        $tanggal_lahir = $this->request->getPost('tanggal_lahir');
+        $alamat = $this->request->getPost('alamat');
+        $jenis_kelamin = $this->request->getPost('jenis_kelamin');
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
+        $email = $this->request->getPost('email');
+        if($password != '' && $password != null && $password != ' ' ){
+            $data = [
+                'id_user' => $id_user,
+                'nama_lengkap' => $nama,
+                'email' => $email,
+                'tanggal_lahir' => $tanggal_lahir,
+                'alamat' => $alamat,
+                'jenis_kelamin' => $jenis_kelamin,
+                'username' => $username,
+                'password' => $password,
+            ];
+            // validasi run
+            if(!$this->validation->run($data, 'u_user_pass')){
+                $res = [
+                    'status'    => 'error',
+                    'data'      => $this->validation->getErrors(),
+                    'message'   => 'Data Gagal Diubah'
+                ];
+            }else{
+                $data = [
+                    'nama_lengkap' => $nama,
+                    'email' => $email,
+                    'tanggal_lahir' => $tanggal_lahir,
+                    'alamat' => $alamat,
+                    'jenis_kelamin' => $jenis_kelamin,
+                    'username' => $username,
+                    'password' => password_hash($password, PASSWORD_DEFAULT),
+                ];
+                $this->user->update($id_user, $data);
+                $res = [
+                    'status'    => 'success',
+                    'data'      => $data,   
+                    'message'   => 'Data Berhasil Diubah'
+                ];
+            }
+        }else{
+            $data = [
+                'id_user' => $id_user,
+                'nama_lengkap' => $nama,
+                'email' => $email,
+                'tanggal_lahir' => $tanggal_lahir,
+                'alamat' => $alamat,
+                'jenis_kelamin' => $jenis_kelamin,
+                'username' => $username,
+            ];
+            if(!$this->validation->run($data, 'u_user_no_pass')){
+                $res = [
+                    'status'    => 'error',
+                    'data'      => $this->validation->getErrors(),
+                    'message'   => 'Data Gagal Diubah'
+                ];
+            }else{
+                $this->user->update($id_user, $data);
+                $res = [
+                    'status'    => 'success',
+                    'data'      => $data,   
+                    'message'   => 'Data Berhasil Diubah'
+                ];
+            }
+        }
+
+        response()->setJSON($res);
+        return response();
     }
 
     public function register(){
@@ -97,6 +172,10 @@ class User extends BaseController
         
         response()->setJSON($res);
         return response();
+    }
+    public function relog(){
+        $this->session->destroy();
+        return redirect()->to(base_url('home/login'));
     }
     public function logout(){
         $this->session->destroy();
